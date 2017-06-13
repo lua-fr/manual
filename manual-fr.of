@@ -4,185 +4,100 @@
 
 @sect1{@title{Introduction}
 
-Lua is a powerful, efficient, lightweight, embeddable scripting language.
-It supports procedural programming,
-object-oriented programming, functional programming,
-data-driven programming, and data description.
+Lua est un langage de script puissant, efficace, léger, embarquable.
+Il supporte la programmation précédurale, la programmation orientée objet, la programmation fonctionnelle, la programmation data-driven et la description de données.
 
-Lua combines simple procedural syntax with powerful data description
-constructs based on associative arrays and extensible semantics.
-Lua is dynamically typed,
-runs by interpreting bytecode with a register-based
-virtual machine,
-and has automatic memory management with
-incremental garbage collection,
-making it ideal for configuration, scripting,
-and rapid prototyping.
+Lua combine une syntaxe procédurale simple avec une puissance construction de description des données basée sur des tableaux associatifs et une sémantique extensible.
+Lua est typée dynamiquement, basée sur l'interprétation d'un bytecode et une machine virtuelle. Il possède une gestion de la mémoire avec un garbage collector incrémental, le rendant facilement configurable, scriptable, et un prototypage rapide.
 
-Lua is implemented as a library, written in @emphx{clean C},
-the common subset of @N{Standard C} and C++.
-The Lua distribution includes a host program called @id{lua},
-which uses the Lua library to offer a complete,
-standalone Lua interpreter,
-for interactive or batch use.
-Lua is intended to be used both as a powerful, lightweight,
-embeddable scripting language for any program that needs one,
-and as a powerful but lightweight and efficient stand-alone language.
+Lua est implémenté comme une librairie, écrite en @emphx{clean C}, le sous-ensemble issue du @N{Standard C} et C++.
+La distribution du Lua comprend un programme hôte nomé @id{lua}, qui utilise la librarie Lua pour offir un interprêteur Lua complet, et autonome, à utiliser interactivement ou comme interprêteur.
+Lua est pensé pour être un langage scriptable à la fois puissant, léger, et embarquable pour les besoins de tous les prorgammes, et un langage autonome puissant, léger, et efficace.
 
-As an extension language, Lua has no notion of a @Q{main} program:
-it works @emph{embedded} in a host client,
-called the @emph{embedding program} or simply the @emphx{host}.
-(Frequently, this host is the stand-alone @id{lua} program.)
-The host program can invoke functions to execute a piece of Lua code,
-can write and read Lua variables,
-and can register @N{C functions} to be called by Lua code.
-Through the use of @N{C functions}, Lua can be augmented to cope with
-a wide range of different domains,
-thus creating customized programming languages sharing a syntactical framework.
+En tant que langage d'extention, Lua n'a pas de principe de programme @Q{main} : il fonctionne comme un langage embarqué sur un hôte, appelé @emph{embedding program}, ou simplement @emphx{host}. (Souvent, cet hôte est un programme @id{lua} autonome.)
+Le programme hôte peut appeler des fonctions pour exécuter des morceaux de code Lua, peut écrire et lire des variables Lua, peut enregister des @N{fonctions C} pour être appelées avec du code Lua.
+Avec l'utilisation de @N{fonctions C}, Lua peut être utilisé dans de nombreux domaines de programmation, et ainsi créer des langages de programmation partageant une framework syntaxique.
 
-Lua is free software,
-and is provided as usual with no guarantees,
-as stated in its license.
-The implementation described in this manual is available
-at Lua's official web site, @id{www.lua.org}.
+Lua est un logiciel libre, et est fourni sans aucune garantie, comme indiqué dans sa licence.
+L'implémentation décrite dans ce manuel est disponible sur le site officiel de Lua, @id{www.lua.org}.
 
-Like any other reference manual,
-this document is dry in places.
-For a discussion of the decisions behind the design of Lua,
-see the technical papers available at Lua's web site.
-For a detailed introduction to programming in Lua,
-see Roberto's book, @emphx{Programming in Lua}.
+Comme n'importe quel autre manuel de référence, ce document n'a pas pour but d'enseigner, mais de renseigner.
+Pour discuter des décisions à propos du design de Lua, voir les documents techniques disponibles sur le site de Lua.
+Pour une introduction technique à la programmation en Lua, voir le livre de Roberto, @emphx{Programming en Lua}.
 
 }
 
 
 @C{-------------------------------------------------------------------------}
-@sect1{basic| @title{Basic Concepts}
+@sect1{basic| @title{Concepts basiques}
 
-This section describes the basic concepts of the language.
+Cette section décrit les concepts basiques du langage.
 
-@sect2{TypesSec| @title{Values and Types}
+@sect2{TypesSec| @title{Valeurs et types}
 
-Lua is a @emph{dynamically typed language}.
-This means that
-variables do not have types; only values do.
-There are no type definitions in the language.
-All values carry their own type.
+Lua est un @emph{langage typé dynamiquement}.
+Cela signifie que les variables n'ont pas de type, seules les valeurs en ont un.
+Il n'y a pas de définition de type dans le langage.
+Toutes les valeurs portent leur propre type.
 
-All values in Lua are @emph{first-class values}.
-This means that all values can be stored in variables,
-passed as arguments to other functions, and returned as results.
+Toutes les valeurs dans Lua sont @emph{des valeurs de première classe}.
+Cela signifie que toutes les valeurs sont stockées dans des variables, passées comme arguments à des fonctions, et renvoyées comme résultat.
 
-There are eight @x{basic types} in Lua:
+Il y a huit @x{types de base} en Lua :
 @def{nil}, @def{boolean}, @def{number},
 @def{string}, @def{function}, @def{userdata},
 @def{thread}, and @def{table}.
-The type @emph{nil} has one single value, @nil,
-whose main property is to be different from any other value;
-it usually represents the absence of a useful value.
-The type @emph{boolean} has two values, @false and @true.
-Both @nil and @false make a condition false;
-any other value makes it true.
-The type @emph{number} represents both
-integer numbers and real (floating-point) numbers.
-The type @emph{string} represents immutable sequences of bytes.
-@index{eight-bit clean}
-Lua is 8-bit clean:
-strings can contain any 8-bit value,
-including @x{embedded zeros} (@Char{\0}).
-Lua is also encoding-agnostic;
-it makes no assumptions about the contents of a string.
+Le type @emph{nil} ne contient qu'une valeur, @nil, qui a la principale propriété d'être différente de toutes les autres valeurs ; il représente usuellement l'absence de valeur utile.
+Le type @emph{boolean} contient deux valeurs, @false et @true.
+@nil et @false sont des conditions fausses ; toutes les autres valeurs sont des conditions vraient.
+Le type @emph{number} représente à la fois les nombres entiers, et réels.
+Le type @emph{string} représente des séquences d'octets immuables.
+@index{eight-bin clean}
+Lua est 8-bit clean :
+Les strings peuvent contenir n'importes quelles valeurs de 8 bits, incluant les @x{embedded zeros} (@Char{\0}).
+Lua aussi indépendant de l'encodage ; cela ne fait aucun doute sur le contenu d'un string.
 
-The type @emph{number} uses two internal representations,
-or two @x{subtypes},
-one called @def{integer} and the other called @def{float}.
-Lua has explicit rules about when each representation is used,
-but it also converts between them automatically as needed @see{coercion}.
-Therefore,
-the programmer may choose to mostly ignore the difference
-between integers and floats
-or to assume complete control over the representation of each number.
-Standard Lua uses 64-bit integers and double-precision (64-bit) floats,
-but you can also compile Lua so that it
-uses 32-bit integers and/or single-precision (32-bit) floats.
-The option with 32 bits for both integers and floats
-is particularly attractive
-for small machines and embedded systems.
-(See macro @id{LUA_32BITS} in file @id{luaconf.h}.)
+Le type @emph{number} utilise deux représentations internet, ou deux @x{subtypes}, une appelée @def{integer}, et une autre appelée @def{float}.
+Lua a des règles explicites quant à quelle représentation utiliser, mais peut également les convertir automatiquement quand nécessaire @see{coercion}.
+Par conséquent, le programmeur peut choisir d'ignorer la différente entre les integers et les floats la plupart du temps, ou bien contrôler compl_tement quel type utiliser.
+Le Lua standard utilise des integers sur 64 bits, et des floats à double précision (64 bits), mais vous pouvez aussi compiler Lua pour le faire utiliser des integers sur 32 bits et/ou des floats à simple précision (32 bits).
+Le fait d'utiliser 32 bits pour et les integers, et les floats et particulièrement avantageux pour les petits machines, et les machines emarquées (voir la macro @id{LUA_32BITS} dans le fichier @id{luaconf.h}).
 
-Lua can call (and manipulate) functions written in Lua and
-functions written in C @see{functioncall}.
-Both are represented by the type @emph{function}.
+Lua peut appeler (et manipuler) des fonctions écrites en Lua, et des fonctions écrites en C @see{functioncall}.
+Les deux sont représentées par le type @emph{function}.
 
-The type @emph{userdata} is provided to allow arbitrary @N{C data} to
-be stored in Lua variables.
-A userdata value represents a block of raw memory.
-There are two kinds of userdata:
-@emphx{full userdata},
-which is an object with a block of memory managed by Lua,
-and @emphx{light userdata},
-which is simply a @N{C pointer} value.
-Userdata has no predefined operations in Lua,
-except assignment and identity test.
-By using @emph{metatables},
-the programmer can define operations for full userdata values
-@see{metatable}.
-Userdata values cannot be created or modified in Lua,
-only through the @N{C API}.
-This guarantees the integrity of data owned by the host program.
+Le type @emph{userdata} est capable de stocker des @N{C data} dans des variables Lua.
+Une variable de type userdata représente un bloc de mémoire.
+Il y a deux types d'userdata : 
+@emphx{full userdata}, qui est un objet dont l'emplacement en mémoire est géré par Lua,
+et @emphx{light userdata}, qui est simplement une valeur de type @N{pointeur C}.
+Le type userdata n'a pas d'opérations prédéfinies en Lua, en dehors de l'affectation et les tests d'identité.
+En utilisant les @emph{metatables}, le programmeur peut définir des opérations sur les valeurs de type full userdata @see{metatable}.
+Les valeurs de type userdata ne peuvent pas être créer ou modifier en Lua, seulement en utulisant @N{l'API C}.
+Cela garantie l'intégrité des données propres au programme hôte.
 
-The type @def{thread} represents independent threads of execution
-and it is used to implement coroutines @see{coroutine}.
-Lua threads are not related to operating-system threads.
-Lua supports coroutines on all systems,
-even those that do not support threads natively.
+Le type @def{thread} représente des threads indépendant de l'exécution, et est utilisé pour implémenter des coroutines @see{coroutine}.
+Les threads Lua ne sont liés aux threads du système d'exploitation.
+Lua supporte les coroutines sur tous les systèmes, même sur ceux qui ne supportent pas les threads nativement.
 
-The type @emph{table} implements @x{associative arrays},
-that is, @x{arrays} that can be indexed not only with numbers,
-but with any Lua value except @nil and @x{NaN}.
-(@emphx{Not a Number} is a special value used to represent
-undefined or unrepresentable numerical results, such as @T{0/0}.)
-Tables can be @emph{heterogeneous};
-that is, they can contain values of all types (except @nil).
-Any key with value @nil is not considered part of the table.
-Conversely, any key that is not part of a table has
-an associated value @nil.
+Le type @emph{table} implément les @x{tableaux associatifs}, qui sont des @x{tableaux} qui ne peuvent pas être indexés pas seulement avec des nombres, mais avec n'importe quelle valeur Lua exceptés @nil et @x{NaN} (@emphx{Not a Number} est une valeur spéciale utilisée pour représenter des résultats numériques indéfinis ou inreprésentables, comme par exemple @T{0/0}).
+Les tables peutvent être @emph{hétérogènes} ; c'est à dire, ils peuvent contenir des valeurs de tous les types (excepté @nil).
+N'importe quelle clé @nil n'est pas considérée comme une partie de la table.
+Inversement, toutes les clés qui ne font pas partie de la table ont une clé associée à la valeur @nil.
 
-Tables are the sole data-structuring mechanism in Lua;
-they can be used to represent ordinary arrays, lists,
-symbol tables, sets, records, graphs, trees, etc.
-To represent @x{records}, Lua uses the field name as an index.
-The language supports this representation by
-providing @id{a.name} as syntactic sugar for @T{a["name"]}.
-There are several convenient ways to create tables in Lua
-@see{tableconstructor}.
+Les tables sont des méchanismes de structures de données propres à Lua ; ils peuvent être utilisés pour représenter des tableaux ordinaires, des listes, des tables de symboles, des dictionnaires, des dossiers, des graphes, des arbres, etc.
+Pour représenter des @x{dossiers}, Lua utilise le champ de nom comme un index.
+Le langage supporte cette représentation en fournissant un identifiant @id{a.name} comme bloc syntaxique pour @T{a["name"]}.
+Il y a beaucoup de manières adaptées de créer des tables en Lua @see{tableconstructor}.
 
-Like indices,
-the values of table fields can be of any type.
-In particular,
-because functions are first-class values,
-table fields can contain functions.
-Thus tables can also carry @emph{methods} @see{func-def}.
+Tout comme les indices, les valeurs des champs d'une table peuvent être de tous les types.
+En particulier, comme les fonctions sont des valeurs de première classe, elles peuvent être des champs d'une table.
+Ainsi, les tables peuvent contenir des @emph{méthodes} @see{func-def}.
 
-The indexing of tables follows
-the definition of raw equality in the language.
-The expressions @T{a[i]} and @T{a[j]}
-denote the same table element
-if and only if @id{i} and @id{j} are raw equal
-(that is, equal without metamethods).
-In particular, floats with integral values
-are equal to their respective integers
-(e.g., @T{1.0 == 1}).
-To avoid ambiguities,
-any float with integral value used as a key
-is converted to its respective integer.
-For instance, if you write @T{a[2.0] = true},
-the actual key inserted into the table will be the
-integer @T{2}.
-(On the other hand,
-2 and @St{2} are different Lua values and therefore
-denote different table entries.)
-
+L'indexation des tables suivent la déinifition de l'égalité pure dans le langage. Les expressions @T{a[i]} et @T{a[j]} indiquent le même élément de la table si et seulement si @id{i} et @id{j} sont égaux (c'est à dire, égaux sans méta-méthodes).
+En particulier, les flottants avec des valeurs entières sont égaux à leur représentation entière respective (e.g., @T{1.0 == 1}).
+Afin d'éviter les ambiguités, tous les flottants avec une valeur entière sont automatiquement convertis vers leur forme entière respective.
+Par exemple, si vous écrivez @T{a[2.0] = true}, la clé insérée dans la table sera l'entier @T{2} (d'un autre côté, 2 et @St{2} sont deux valeurs différentes et ainsi pointent vers deux entrées de la table différents).
 
 Tables, functions, threads, and (full) userdata values are @emph{objects}:
 variables do not actually @emph{contain} these values,
@@ -191,8 +106,7 @@ Assignment, parameter passing, and function returns
 always manipulate references to such values;
 these operations do not imply any kind of copy.
 
-The library function @Lid{type} returns a string describing the type
-of a given value @see{predefined}.
+La fonction de librairie @Lid{type} renvoie une chaine de caractères décrivant le type de la valeur passée en argument @see{predefined}.
 
 }
 
