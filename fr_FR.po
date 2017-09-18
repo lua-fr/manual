@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: 2017-09-18 13:46+0200\n"
-"PO-Revision-Date: 2017-09-18 13:50+0200\n"
+"PO-Revision-Date: 2017-09-18 14:11+0200\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -20,17 +20,21 @@ msgstr ""
 # skip
 #. type: Plain text
 #: manual.of:4
+#, fuzzy
 msgid ""
 "@Ci{$Id: manual.of,v 1.166 2016/12/22 15:46:25 roberto Exp roberto $} "
 "@C{[(-------------------------------------------------------------------------} "
 "@manual{"
 msgstr ""
+"@Ci{$Id: manual.of,v 1.166 2016/12/22 15:46:25 roberto Exp roberto $} "
+"@C{[(-------------------------------------------------------------------------} "
+"@manual{"
 
 # skip
 #. type: Plain text
 #: manual.of:6
 msgid "@sect1{@title{Introduction}"
-msgstr ""
+msgstr "@sect1{@title{Introduction}"
 
 #. type: Plain text
 #: manual.of:11
@@ -53,7 +57,16 @@ msgid ""
 "has automatic memory management with incremental garbage collection, making it "
 "ideal for configuration, scripting, and rapid prototyping."
 msgstr ""
+"Lua combine une syntaxe procédurale simple avec une puissance construction de "
+"description des données basée sur des tableaux associatifs et une sémantique "
+"extensible. Lua est typée dynamiquement, basée sur l'interprétation d'un "
+"bytecode et une machine virtuelle. Il possède une gestion de la mémoire avec un "
+"garbage collector incrémental, le rendant facilement configurable, scriptable, "
+"et un prototypage rapide."
 
+# a revoir:
+# - scriptable
+# - embarquable
 #. type: Plain text
 #: manual.of:31
 msgid ""
@@ -64,7 +77,15 @@ msgid ""
 "a powerful, lightweight, embeddable scripting language for any program that "
 "needs one, and as a powerful but lightweight and efficient stand-alone language."
 msgstr ""
+"Lua est implémenté comme une bibliothèque, écrite en @emphx{clean C}, le sous-"
+"ensemble issue du @N{Standard C} et C++. La distribution du Lua comprend un "
+"programme hôte nommé @id{lua}, qui utilise la librairie Lua pour offrir un "
+"interpréteur Lua complet, et autonome, à utiliser interactivement ou comme "
+"interpréteur. Lua est pensé pour être un langage scriptable à la fois puissant, "
+"léger, et embarquable pour les besoins de tous les programmes, et un langage "
+"autonome puissant, léger, et efficace."
 
+# - partageant une framework syntaxique
 #. type: Plain text
 #: manual.of:42
 msgid ""
@@ -77,6 +98,15 @@ msgid ""
 "to cope with a wide range of different domains, thus creating customized "
 "programming languages sharing a syntactical framework."
 msgstr ""
+"En tant que langage d'extension, Lua n'a pas de principe de programme "
+"@Q{main} : il fonctionne comme un langage embarqué sur un hôte, appelé "
+"@emph{embedding program}, ou simplement @emphx{host}. (Souvent, cet hôte est un "
+"programme @id{lua} autonome.) Le programme hôte peut appeler des fonctions pour "
+"exécuter des morceaux de code Lua, peut écrire et lire des variables Lua, peut "
+"enregistrer des @N{fonctions C} pour être appelées avec du code Lua. Avec "
+"l'utilisation de @N{fonctions C}, Lua peut être utilisé dans de nombreux "
+"domaines de programmation, et ainsi créer des langages de programmation "
+"partageant une framework syntaxique."
 
 #. type: Plain text
 #: manual.of:48
@@ -85,6 +115,9 @@ msgid ""
 "its license.  The implementation described in this manual is available at Lua's "
 "official web site, @id{www.lua.org}."
 msgstr ""
+"Lua est un logiciel libre, et est fourni sans aucune garantie, comme indiqué "
+"dans sa licence. L'implémentation décrite dans ce manuel est disponible sur le "
+"site officiel de Lua, @id{www.lua.org}."
 
 #. type: Plain text
 #: manual.of:55
@@ -94,7 +127,13 @@ msgid ""
 "available at Lua's web site.  For a detailed introduction to programming in "
 "Lua, see Roberto's book, @emphx{Programming in Lua}."
 msgstr ""
+"Comme n'importe quel autre manuel de référence, ce document n'a pas pour but "
+"d'enseigner, mais de renseigner. Pour discuter des décisions à propos du design "
+"de Lua, voir les documents techniques disponibles sur le site de Lua. Pour une "
+"introduction technique à la programmation en Lua, voir le livre de Roberto, "
+"@emphx{Programming en Lua}."
 
+# skip
 #. type: Plain text
 #: manual.of:57 manual.of:198 manual.of:239 manual.of:286 manual.of:543
 #: manual.of:557 manual.of:675 manual.of:737 manual.of:739 manual.of:841
@@ -182,7 +221,7 @@ msgstr ""
 #: manual.of:8406 manual.of:8466 manual.of:8468 manual.of:8502 manual.of:8504
 #: manual.of:8506 manual.of:8628 manual.of:8630
 msgid "}"
-msgstr ""
+msgstr "}"
 
 #. type: Plain text
 #: manual.of:61
@@ -190,16 +229,18 @@ msgid ""
 "@C{-------------------------------------------------------------------------} "
 "@sect1{basic| @title{Basic Concepts}"
 msgstr ""
+"@C{-------------------------------------------------------------------------} "
+"@sect1{basic| @title{Concepts basiques}"
 
 #. type: Plain text
 #: manual.of:63
 msgid "This section describes the basic concepts of the language."
-msgstr ""
+msgstr "Cette section décrit les concepts basiques du langage."
 
 #. type: Plain text
 #: manual.of:65
 msgid "@sect2{TypesSec| @title{Values and Types}"
-msgstr ""
+msgstr "@sect2{TypesSec| @title{Valeurs et types}"
 
 #. type: Plain text
 #: manual.of:71
@@ -208,6 +249,9 @@ msgid ""
 "have types; only values do.  There are no type definitions in the language.  "
 "All values carry their own type."
 msgstr ""
+"Lua est un @emph{langage typé dynamiquement}. Cela signifie que les variables "
+"n'ont pas de type, seules les valeurs en ont un. Il n'y a pas de définition de "
+"type dans le langage. Toutes les valeurs portent leur propre type."
 
 #. type: Plain text
 #: manual.of:75
@@ -216,6 +260,9 @@ msgid ""
 "can be stored in variables, passed as arguments to other functions, and "
 "returned as results."
 msgstr ""
+"Toutes les valeurs dans Lua sont @emph{des valeurs de première classe}. Cela "
+"signifie que toutes les valeurs sont stockées dans des variables, passées comme "
+"arguments à des fonctions, et renvoyées comme résultat."
 
 #. type: Plain text
 #: manual.of:95
@@ -232,6 +279,19 @@ msgid ""
 "value, including @x{embedded zeros} (@Char{\\0}).  Lua is also encoding-"
 "agnostic; it makes no assumptions about the contents of a string."
 msgstr ""
+"Il y a huit @x{types de base} en Lua : @def{nil}, @def{boolean}, @def{number}, "
+"@def{string}, @def{function}, @def{userdata}, @def{thread}, and @def{table}.\n"
+"Le type @emph{nil} ne contient qu'une valeur, @nil, qui a la principale "
+"propriété d'être différente de toutes les autres valeurs ; il représente "
+"usuellement l'absence de valeur utile.\n"
+"Le type @emph{boolean} contient deux valeurs, @false et @true.\n"
+"@nil et @false sont des conditions fausses ; toutes les autres valeurs sont des "
+"conditions vraient. Le type @emph{number} représente à la fois les nombres "
+"entiers, et réels. Le type @emph{string} représente des séquences d'octets "
+"immuables. @index{eight-bin clean} Lua est 8-bit clean : Les strings peuvent "
+"contenir n'importes quelles valeurs de 8 bits, incluant les @x{embedded zeros} "
+"(@Char{\\0}). Lua aussi indépendant de l'encodage ; cela ne fait aucun doute "
+"sur le contenu d'un string."
 
 #. type: Plain text
 #: manual.of:112
@@ -248,6 +308,19 @@ msgid ""
 "small machines and embedded systems.  (See macro @id{LUA_32BITS} in file "
 "@id{luaconf.h}.)"
 msgstr ""
+"Le type @emph{number} utilise deux représentations internet, ou deux "
+"@x{subtypes}, une appelée @def{integer}, et une autre appelée @def{float}.\n"
+"Lua a des règles explicites quant à quelle représentation utiliser, mais peut "
+"également les convertir automatiquement quand nécessaire @see{coercion}.\n"
+"Par conséquent, le programmeur peut choisir d'ignorer la différente entre les "
+"integers et les floats la plupart du temps, ou bien contrôler compl_tement quel "
+"type utiliser.\n"
+"Le Lua standard utilise des integers sur 64 bits, et des floats à double "
+"précision (64 bits), mais vous pouvez aussi compiler Lua pour le faire utiliser "
+"des integers sur 32 bits et/ou des floats à simple précision (32 bits).\n"
+"Le fait d'utiliser 32 bits pour et les integers, et les floats et "
+"particulièrement avantageux pour les petits machines, et les machines emarquées "
+"(voir la macro @id{LUA_32BITS} dans le fichier @id{luaconf.h})."
 
 #. type: Plain text
 #: manual.of:116
@@ -255,6 +328,9 @@ msgid ""
 "Lua can call (and manipulate) functions written in Lua and functions written in "
 "C @see{functioncall}.  Both are represented by the type @emph{function}."
 msgstr ""
+"Lua peut appeler (et manipuler) des fonctions écrites en Lua, et des fonctions "
+"écrites en C @see{functioncall}. Les deux sont représentées par le type "
+"@emph{function}."
 
 #. type: Plain text
 #: manual.of:133
@@ -269,6 +345,20 @@ msgid ""
 "cannot be created or modified in Lua, only through the @N{C API}.  This "
 "guarantees the integrity of data owned by the host program."
 msgstr ""
+"e type @emph{userdata} est capable de stocker des @N{C data} dans des variables "
+"Lua.\n"
+"Une variable de type userdata représente un bloc de mémoire.\n"
+"Il y a deux types d'userdata :\n"
+"@emphx{full userdata}, qui est un objet dont l'emplacement en mémoire est géré "
+"par Lua, et @emphx{light userdata}, qui est simplement une valeur de type "
+"@N{pointeur C}.\n"
+"Le type userdata n'a pas d'opérations prédéfinies en Lua, en dehors de "
+"l'affectation et les tests d'identité.\n"
+"En utilisant les @emph{metatables}, le programmeur peut définir des opérations "
+"sur les valeurs de type full userdata @see{metatable}.\n"
+"Les valeurs de type userdata ne peuvent pas être créer ou modifier en Lua, "
+"seulement en utulisant @N{l'API C}.\n"
+"Cela garantie l'intégrité des données propres au programme hôte."
 
 #. type: Plain text
 #: manual.of:139
@@ -278,6 +368,11 @@ msgid ""
 "operating-system threads.  Lua supports coroutines on all systems, even those "
 "that do not support threads natively."
 msgstr ""
+"Le type @def{thread} représente des threads indépendant de l'exécution, et est "
+"utilisé pour implémenter des coroutines @see{coroutine}.\n"
+"Les threads Lua ne sont liés aux threads du système d'exploitation.\n"
+"Lua supporte les coroutines sur tous les systèmes, même sur ceux qui ne "
+"supportent pas les threads nativement."
 
 #. type: Plain text
 #: manual.of:150
@@ -290,6 +385,16 @@ msgid ""
 "@nil).  Any key with value @nil is not considered part of the table.  "
 "Conversely, any key that is not part of a table has an associated value @nil."
 msgstr ""
+"Le type @emph{table} implément les @x{tableaux associatifs}, qui sont des "
+"@x{tableaux} qui ne peuvent pas être indexés pas seulement avec des nombres, "
+"mais avec n'importe quelle valeur Lua exceptés @nil et @x{NaN} (@emphx{Not a "
+"Number} est une valeur spéciale utilisée pour représenter des résultats "
+"numériques indéfinis ou inreprésentables, comme par exemple @T{0/0}).\n"
+"Les tables peutvent être @emph{hétérogènes} ; c'est à dire, ils peuvent "
+"contenir des valeurs de tous les types (excepté @nil).\n"
+"N'importe quelle clé @nil n'est pas considérée comme une partie de la table.\n"
+"Inversement, toutes les clés qui ne font pas partie de la table ont une clé "
+"associée à la valeur @nil."
 
 #. type: Plain text
 #: manual.of:159
@@ -301,6 +406,15 @@ msgid ""
 "sugar for @T{a[\"name\"]}.  There are several convenient ways to create tables "
 "in Lua @see{tableconstructor}."
 msgstr ""
+"Les tables sont des méchanismes de structures de données propres à Lua ; ils "
+"peuvent être utilisés pour représenter des tableaux ordinaires, des listes, des "
+"tables de symboles, des dictionnaires, des dossiers, des graphes, des arbres, "
+"etc.\n"
+"Pour représenter des @x{dossiers}, Lua utilise le champ de nom comme un index.\n"
+"Le langage supporte cette représentation en fournissant un identifiant @id{a."
+"name} comme bloc syntaxique pour @T{a[\"name\"]}.\n"
+"Il y a beaucoup de manières adaptées de créer des tables en Lua "
+"@see{tableconstructor}."
 
 #. type: Plain text
 #: manual.of:166
@@ -309,6 +423,11 @@ msgid ""
 "because functions are first-class values, table fields can contain functions.  "
 "Thus tables can also carry @emph{methods} @see{func-def}."
 msgstr ""
+"Tout comme les indices, les valeurs des champs d'une table peuvent être de tous "
+"les types.\n"
+"En particulier, comme les fonctions sont des valeurs de première classe, elles "
+"peuvent être des champs d'une table.\n"
+"Ainsi, les tables peuvent contenir des @emph{méthodes} @see{func-def}."
 
 #. type: Plain text
 #: manual.of:185
@@ -323,6 +442,17 @@ msgid ""
 "@T{2}.  (On the other hand, 2 and @St{2} are different Lua values and therefore "
 "denote different table entries.)"
 msgstr ""
+"L'indexation des tables suivent la déinifition de l'égalité pure dans le "
+"langage. Les expressions @T{a[i]} et @T{a[j]} indiquent le même élément de la "
+"table si et seulement si @id{i} et @id{j} sont égaux (c'est à dire, égaux sans "
+"méta-méthodes).\n"
+"En particulier, les flottants avec des valeurs entières sont égaux à leur "
+"représentation entière respective (e.g., @T{1.0 == 1}).\n"
+"Afin d'éviter les ambiguités, tous les flottants avec une valeur entière sont "
+"automatiquement convertis vers leur forme entière respective.\n"
+"Par exemple, si vous écrivez @T{a[2.0] = true}, la clé insérée dans la table "
+"sera l'entier @T{2} (d'un autre côté, 2 et @St{2} sont deux valeurs différentes "
+"et ainsi pointent vers deux entrées de la table différents)."
 
 #. type: Plain text
 #: manual.of:193
@@ -332,6 +462,13 @@ msgid ""
 "to them.  Assignment, parameter passing, and function returns always manipulate "
 "references to such values; these operations do not imply any kind of copy."
 msgstr ""
+"Les valeurs de type table, fonction, thread et (full) userdata sont des "
+"@emph{objets} :\n"
+"les variables ne @emph{contiennent} pas ces valeurs, elles @{renvoient} vers "
+"elles.\n"
+"Les affectations, passages de paramètres, et retours de fonctions manipulent "
+"toujours des références vers ces valeurs ; ces opérations n'impliquent pas une "
+"quelconque copie."
 
 #. type: Plain text
 #: manual.of:196
@@ -339,6 +476,8 @@ msgid ""
 "The library function @Lid{type} returns a string describing the type of a given "
 "value @see{predefined}."
 msgstr ""
+"La fonction de bibliothèque @Lid{type} renvoie une chaîne de caractères "
+"décrivant le type de la valeur passée en argument @see{predefined}."
 
 #. type: Plain text
 #: manual.of:200
