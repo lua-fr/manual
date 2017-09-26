@@ -10,6 +10,10 @@ lpeg.locale(lpeg)
 
 local commands = { "ANSI", "APIEntry", "C", "CId", "Char", "Ci", "En", "LibEntry", "Lid", "M", "N", "Produc", "Q", "Rw", "See", "St", "T", "apii", "bnfNter", "bnfopt", "bnfrep", "bnfter", "def", "defid", "description", "emph", "emphx", "id", "idx", "index", "item", "itemize", "link", "manual", "num", "producbody", "producname", "refsec", "rep", "rw", "sect1", "sect2", "sect3", "sect4", "see", "seeC", "seeF", "sp", "title", "verbatim", "x", "At", "Cdots", "Close", "Open", "Or", "OrNL", "VerBar", "false", "ldots", "leq", "nil", "pi", "true", }
 
+local function escape_html(s)
+	return s:gsub('.', {['<'] = '&lt;', ['>'] = '&gt;'})
+end
+
 local function see_fun_tag(content)
 	local format = '(see <a href="#%s"><code>%s</code></a>)'
 	return string.format(format, content, content)
@@ -31,7 +35,7 @@ local function apii_tag(content)
 end
 
 local function item_tag(content)
-	local s,e,title = content:find('([^\n]+)|')
+	local s,e,title = content:find('([^\n]-)|')
 	if s then
 		return string.format('<li><b>%s: </b>%s</li>', title, content:sub(e+1))
 	end
@@ -56,6 +60,14 @@ local function producbody_tag(content)
 	return content:gsub('\n',' '):gsub('[\t ]+',' '):gsub('@OrNL','|\n        ')
 end
 
+local function code_tag(content)
+	return string.format('<code>%s</code>', escape_html(content))
+end
+
+local function pre_tag(content)
+	return string.format('<pre>%s</pre>', escape_html(content))
+end
+
 local sub_tag = {
 	['C'] = '', ['Ci'] = '',
 	['At'] = '@',
@@ -76,10 +88,10 @@ local sub_tag = {
 	['N'] = function (content) return content:gsub(' ', '&nbsp;') end,
 	['Q'] = '"%s"', -- quote ?
 	['Rw'] = simple_tag 'b',
-	['St'] = '"<code>%s</code>"',
-	['T'] = simple_tag 'code',
+	['St'] = function (content) return string.format('"%s"', code_tag(content)) end,
+	['T'] = code_tag,
 	-- Tag de définition de grammaire
-	['Produc'] = simple_tag 'pre',
+	['Produc'] = pre_tag,
 	['bnfNter'] = '%s', -- non-terminal
 	['bnfopt'] = '[%s]', -- optionnel
 	['bnfrep'] = '{%s}', -- répétition
@@ -95,15 +107,15 @@ local sub_tag = {
 	['description'] = simple_tag 'ul',
 	['emph'] = simple_tag 'em',
 	['emphx'] = simple_tag 'em',
-	['id'] = simple_tag 'code',
-	['idx'] = simple_tag 'code',
+	['id'] = code_tag,
+	['idx'] = code_tag,
 	['itemize'] = simple_tag 'ul',
 	['manual'] = '%s', -- ok...
 	['num'] = '%s',
 	['em'] = simple_tag 'em',
 	['rw'] = simple_tag 'b',
 	['sp'] = simple_tag 'sup',
-	['verbatim'] = simple_tag 'pre',
+	['verbatim'] = pre_tag,
 	['x'] = '%s',
 	-- ref simple
 	['Lid'] = Lid_tag,
@@ -240,7 +252,7 @@ local function APIEntry_tag(elem, content)
 		apii = sub_tag['apii'](paras_to_html{ tag = '#default', content = elem.apii.content }) .. '\n'
 	end
 	if s then
-		local format = '<hr><h3><a name="%s"><code>%s</code></a></h3>\n' .. apii .. '<pre>%s</pre>%s'
+		local format = '<hr/><h3><a name="%s"><code>%s</code></a></h3>\n' .. apii .. '<pre>%s</pre>%s'
 		local title = prototype:match('%s.-(lua[%w_]+)') -- FIXME yolo
 		return string.format(format, title, title, prototype, content)
 	end
@@ -256,7 +268,8 @@ local spec_tag = {
 	['APIEntry'] = APIEntry_tag,
 }
 
-local paraph_comm = { "sect1", "sect2", "sect3", "sect4", "APIEntry", "LibEntry" }
+local paraph_comm = { "sect1", "sect2", "sect3", "sect4", }
+local paraph_in_paraph = { APIEntry = true, LibEntry = true, }
 local pre_rules = {
 	--["producbody"] = remove_nl,
 	["sect1"] = section_pre, ["sect2"] = section_pre, ["sect3"] = section_pre, ["sect4"] = section_pre,
@@ -327,11 +340,15 @@ function paras_to_html(elem)
 	table.insert(path, tag)
 
 	for _,k in ipairs(paras) do
-		if paraph_set[tag] then table.insert(ret, '<p>' .. para_to_html(tag, k) .. '</p>')
-		else table.insert(ret, para_to_html(tag, k)) end
+		local content = para_to_html(tag, k)
+		if #content > 0 then
+			if paraph_set[tag] then table.insert(ret, '<p>' .. content .. '</p>\n')
+			else table.insert(ret, content) end
+		end
 	end
 	local sep = '\n'
 	if keep_nl_set[tag] then sep = '\n\n' end
+	if paraph_in_paraph[tag] then sep = '</p>\n<p>' end
 	local str = table.concat(ret,sep)
 	if keep_nl_set[tag] then str = trim_nl(str) end
 	if type(sub_tag[tag]) == 'string' then
@@ -350,38 +367,37 @@ function paras_to_html(elem)
 end
 
 local header = [[
-<HTML>
-<HEAD>
-<TITLE>Lua 5.3 Reference Manual</TITLE>
-<LINK REL="stylesheet" TYPE="text/css" HREF="https://www.lua.org/lua.css">
-<LINK REL="stylesheet" TYPE="text/css" HREF="https://www.lua.org/manual/manual.css">
-<META HTTP-EQUIV="content-type" CONTENT="text/html; charset=utf-8">
-</HEAD>
+<html>
+<head>
+<title>Lua 5.3 Reference Manual</title>
+<link REL="stylesheet" TYPE="text/css" HREF="https://www.lua.org/lua.css"/>
+<link REL="stylesheet" TYPE="text/css" HREF="https://www.lua.org/manual/manual.css"/>
+<meta HTTP-EQUIV="content-type" CONTENT="text/html; charset=utf-8"/>
+</head>
 
-<BODY>
+<body>
 
-<H1>
-<A HREF="https://www.lua.org/home.html"><IMG SRC="https://www.lua.org/images/logo.gif" ALT="Lua"></A>
+<h1>
+<a HREF="https://www.lua.org/home.html"><img SRC="https://www.lua.org/images/logo.gif" ALT="Lua"/></a>
 Lua 5.3 Reference Manual
-</H1>
+</h1>
 
-<P>
-by Roberto Ierusalimschy, Luiz Henrique de Figueiredo, Waldemar Celes
+<p>by Roberto Ierusalimschy, Luiz Henrique de Figueiredo, Waldemar Celes</p>
 
-<P>
-<SMALL>
+<p>
+<small>
 Copyright &copy; 2015&ndash;2017 Lua.org, PUC-Rio.
 Freely available under the terms of the
 <a href="../../license.html">Lua license</a>.
-</SMALL>
-
-<DIV CLASS="menubar">
-<A HREF="contents.html#contents">contents</A>
+</small>
+</p>
+<div class="menubar">
+<a href="contents.html#contents">contents</a>
 &middot;
-<A HREF="contents.html#index">index</A>
+<a href="contents.html#index">index</a>
 &middot;
-<A HREF="../">other versions</A>
-</DIV>
+<a href="../">other versions</a>
+</div>
 ]]
 local footer = [[
 <P CLASS="footer">
