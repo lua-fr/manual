@@ -3,25 +3,22 @@
 # This file is distributed under the same license as the PACKAGE package.
 # FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: \n"
 "POT-Creation-Date: 2017-09-26 18:29+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
-"Language: \n"
+"PO-Revision-Date: 2017-09-26 18:39+0200\n"
+"Language: fr_FR\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"X-Generator: Poedit 1.8.11\n"
 
 #. type: Plain text
 #: manual.of.partial/001-part1.of:4
-msgid ""
-"@Ci{$Id: manual.of,v 1.166 2016/12/22 15:46:25 roberto Exp roberto $} "
-"@C{[(-------------------------------------------------------------------------} "
-"@manual{"
+msgid "@Ci{$Id: manual.of,v 1.166 2016/12/22 15:46:25 roberto Exp roberto $} @C{[(-------------------------------------------------------------------------} @manual{"
 msgstr ""
 
 #. type: Plain text
@@ -32,62 +29,43 @@ msgstr ""
 #. type: Plain text
 #: manual.of.partial/001-part1.of:11
 msgid ""
-"Lua is a powerful, efficient, lightweight, embeddable scripting language.  "
-"It supports procedural programming, object-oriented programming, functional "
-"programming, data-driven programming, and data description."
+"Lua is a powerful, efficient, lightweight, embeddable scripting language.  It supports procedural programming, object-oriented programming, functional programming, data-driven programming, and data "
+"description."
 msgstr ""
 
 #. type: Plain text
 #: manual.of.partial/001-part1.of:21
 msgid ""
-"Lua combines simple procedural syntax with powerful data description "
-"constructs based on associative arrays and extensible semantics.  Lua is "
-"dynamically typed, runs by interpreting bytecode with a register-based "
-"virtual machine, and has automatic memory management with incremental "
-"garbage collection, making it ideal for configuration, scripting, and rapid "
-"prototyping."
+"Lua combines simple procedural syntax with powerful data description constructs based on associative arrays and extensible semantics.  Lua is dynamically typed, runs by interpreting bytecode with a register-"
+"based virtual machine, and has automatic memory management with incremental garbage collection, making it ideal for configuration, scripting, and rapid prototyping."
 msgstr ""
 
 #. type: Plain text
 #: manual.of.partial/001-part1.of:31
 msgid ""
-"Lua is implemented as a library, written in @emphx{clean C}, the common "
-"subset of @N{Standard C} and C++.  The Lua distribution includes a host "
-"program called @id{lua}, which uses the Lua library to offer a complete, "
-"standalone Lua interpreter, for interactive or batch use.  Lua is intended "
-"to be used both as a powerful, lightweight, embeddable scripting language "
-"for any program that needs one, and as a powerful but lightweight and "
-"efficient stand-alone language."
+"Lua is implemented as a library, written in @emphx{clean C}, the common subset of @N{Standard C} and C++.  The Lua distribution includes a host program called @id{lua}, which uses the Lua library to offer a "
+"complete, standalone Lua interpreter, for interactive or batch use.  Lua is intended to be used both as a powerful, lightweight, embeddable scripting language for any program that needs one, and as a powerful "
+"but lightweight and efficient stand-alone language."
 msgstr ""
 
 #. type: Plain text
 #: manual.of.partial/001-part1.of:42
 msgid ""
-"As an extension language, Lua has no notion of a @Q{main} program: it works "
-"@emph{embedded} in a host client, called the @emph{embedding program} or "
-"simply the @emphx{host}.  (Frequently, this host is the stand-alone @id{lua} "
-"program.)  The host program can invoke functions to execute a piece of Lua "
-"code, can write and read Lua variables, and can register @N{C functions} to "
-"be called by Lua code.  Through the use of @N{C functions}, Lua can be "
-"augmented to cope with a wide range of different domains, thus creating "
-"customized programming languages sharing a syntactical framework."
+"As an extension language, Lua has no notion of a @Q{main} program: it works @emph{embedded} in a host client, called the @emph{embedding program} or simply the @emphx{host}.  (Frequently, this host is the "
+"stand-alone @id{lua} program.)  The host program can invoke functions to execute a piece of Lua code, can write and read Lua variables, and can register @N{C functions} to be called by Lua code.  Through the "
+"use of @N{C functions}, Lua can be augmented to cope with a wide range of different domains, thus creating customized programming languages sharing a syntactical framework."
 msgstr ""
 
 #. type: Plain text
 #: manual.of.partial/001-part1.of:48
-msgid ""
-"Lua is free software, and is provided as usual with no guarantees, as stated "
-"in its license.  The implementation described in this manual is available at "
-"Lua's official web site, @id{www.lua.org}."
+msgid "Lua is free software, and is provided as usual with no guarantees, as stated in its license.  The implementation described in this manual is available at Lua's official web site, @id{www.lua.org}."
 msgstr ""
 
 #. type: Plain text
 #: manual.of.partial/001-part1.of:55
 msgid ""
-"Like any other reference manual, this document is dry in places.  For a "
-"discussion of the decisions behind the design of Lua, see the technical "
-"papers available at Lua's web site.  For a detailed introduction to "
-"programming in Lua, see Roberto's book, @emphx{Programming in Lua}."
+"Like any other reference manual, this document is dry in places.  For a discussion of the decisions behind the design of Lua, see the technical papers available at Lua's web site.  For a detailed introduction "
+"to programming in Lua, see Roberto's book, @emphx{Programming in Lua}."
 msgstr ""
 
 #. type: Plain text
@@ -97,9 +75,7 @@ msgstr ""
 
 #. type: Plain text
 #: manual.of.partial/001-part1.of:61
-msgid ""
-"@C{-------------------------------------------------------------------------} "
-"@sect1{basic| @title{Basic Concepts}"
+msgid "@C{-------------------------------------------------------------------------} @sect1{basic| @title{Basic Concepts}"
 msgstr ""
 
 #. type: Plain text
@@ -114,146 +90,95 @@ msgstr ""
 
 #. type: Plain text
 #: manual.of.partial/001-part1.of:71
-msgid ""
-"Lua is a @emph{dynamically typed language}.  This means that variables do "
-"not have types; only values do.  There are no type definitions in the "
-"language.  All values carry their own type."
+msgid "Lua is a @emph{dynamically typed language}.  This means that variables do not have types; only values do.  There are no type definitions in the language.  All values carry their own type."
 msgstr ""
 
 #. type: Plain text
 #: manual.of.partial/001-part1.of:75
-msgid ""
-"All values in Lua are @emph{first-class values}.  This means that all values "
-"can be stored in variables, passed as arguments to other functions, and "
-"returned as results."
+msgid "All values in Lua are @emph{first-class values}.  This means that all values can be stored in variables, passed as arguments to other functions, and returned as results."
 msgstr ""
 
 #. type: Plain text
 #: manual.of.partial/001-part1.of:95
 msgid ""
-"There are eight @x{basic types} in Lua: @def{nil}, @def{boolean}, "
-"@def{number}, @def{string}, @def{function}, @def{userdata}, @def{thread}, "
-"and @def{table}.  The type @emph{nil} has one single value, @nil, whose main "
-"property is to be different from any other value; it usually represents the "
-"absence of a useful value.  The type @emph{boolean} has two values, @false "
-"and @true.  Both @nil and @false make a condition false; any other value "
-"makes it true.  The type @emph{number} represents both integer numbers and "
-"real (floating-point) numbers.  The type @emph{string} represents immutable "
-"sequences of bytes.  @index{eight-bit clean} Lua is 8-bit clean: strings can "
-"contain any 8-bit value, including @x{embedded zeros} (@Char{\\0}).  Lua is "
-"also encoding-agnostic; it makes no assumptions about the contents of a "
+"There are eight @x{basic types} in Lua: @def{nil}, @def{boolean}, @def{number}, @def{string}, @def{function}, @def{userdata}, @def{thread}, and @def{table}.  The type @emph{nil} has one single value, @nil, "
+"whose main property is to be different from any other value; it usually represents the absence of a useful value.  The type @emph{boolean} has two values, @false and @true.  Both @nil and @false make a "
+"condition false; any other value makes it true.  The type @emph{number} represents both integer numbers and real (floating-point) numbers.  The type @emph{string} represents immutable sequences of bytes.  "
+"@index{eight-bit clean} Lua is 8-bit clean: strings can contain any 8-bit value, including @x{embedded zeros} (@Char{\\0}).  Lua is also encoding-agnostic; it makes no assumptions about the contents of a "
 "string."
 msgstr ""
 
 #. type: Plain text
 #: manual.of.partial/001-part1.of:112
 msgid ""
-"The type @emph{number} uses two internal representations, or two "
-"@x{subtypes}, one called @def{integer} and the other called @def{float}.  "
-"Lua has explicit rules about when each representation is used, but it also "
-"converts between them automatically as needed @see{coercion}.  Therefore, "
-"the programmer may choose to mostly ignore the difference between integers "
-"and floats or to assume complete control over the representation of each "
-"number.  Standard Lua uses 64-bit integers and double-precision (64-bit) "
-"floats, but you can also compile Lua so that it uses 32-bit integers and/or "
-"single-precision (32-bit) floats.  The option with 32 bits for both integers "
-"and floats is particularly attractive for small machines and embedded "
-"systems.  (See macro @id{LUA_32BITS} in file @id{luaconf.h}.)"
+"The type @emph{number} uses two internal representations, or two @x{subtypes}, one called @def{integer} and the other called @def{float}.  Lua has explicit rules about when each representation is used, but it "
+"also converts between them automatically as needed @see{coercion}.  Therefore, the programmer may choose to mostly ignore the difference between integers and floats or to assume complete control over the "
+"representation of each number.  Standard Lua uses 64-bit integers and double-precision (64-bit) floats, but you can also compile Lua so that it uses 32-bit integers and/or single-precision (32-bit) floats.  "
+"The option with 32 bits for both integers and floats is particularly attractive for small machines and embedded systems.  (See macro @id{LUA_32BITS} in file @id{luaconf.h}.)"
 msgstr ""
 
 #. type: Plain text
 #: manual.of.partial/001-part1.of:116
-msgid ""
-"Lua can call (and manipulate) functions written in Lua and functions written "
-"in C @see{functioncall}.  Both are represented by the type @emph{function}."
+msgid "Lua can call (and manipulate) functions written in Lua and functions written in C @see{functioncall}.  Both are represented by the type @emph{function}."
 msgstr ""
 
 #. type: Plain text
 #: manual.of.partial/001-part1.of:133
 msgid ""
-"The type @emph{userdata} is provided to allow arbitrary @N{C data} to be "
-"stored in Lua variables.  A userdata value represents a block of raw "
-"memory.  There are two kinds of userdata: @emphx{full userdata}, which is an "
-"object with a block of memory managed by Lua, and @emphx{light userdata}, "
-"which is simply a @N{C pointer} value.  Userdata has no predefined "
-"operations in Lua, except assignment and identity test.  By using "
-"@emph{metatables}, the programmer can define operations for full userdata "
-"values @see{metatable}.  Userdata values cannot be created or modified in "
-"Lua, only through the @N{C API}.  This guarantees the integrity of data "
-"owned by the host program."
+"The type @emph{userdata} is provided to allow arbitrary @N{C data} to be stored in Lua variables.  A userdata value represents a block of raw memory.  There are two kinds of userdata: @emphx{full userdata}, "
+"which is an object with a block of memory managed by Lua, and @emphx{light userdata}, which is simply a @N{C pointer} value.  Userdata has no predefined operations in Lua, except assignment and identity "
+"test.  By using @emph{metatables}, the programmer can define operations for full userdata values @see{metatable}.  Userdata values cannot be created or modified in Lua, only through the @N{C API}.  This "
+"guarantees the integrity of data owned by the host program."
 msgstr ""
 
 #. type: Plain text
 #: manual.of.partial/001-part1.of:139
 msgid ""
-"The type @def{thread} represents independent threads of execution and it is "
-"used to implement coroutines @see{coroutine}.  Lua threads are not related "
-"to operating-system threads.  Lua supports coroutines on all systems, even "
-"those that do not support threads natively."
+"The type @def{thread} represents independent threads of execution and it is used to implement coroutines @see{coroutine}.  Lua threads are not related to operating-system threads.  Lua supports coroutines on "
+"all systems, even those that do not support threads natively."
 msgstr ""
 
 #. type: Plain text
 #: manual.of.partial/001-part1.of:150
 msgid ""
-"The type @emph{table} implements @x{associative arrays}, that is, @x{arrays} "
-"that can be indexed not only with numbers, but with any Lua value except "
-"@nil and @x{NaN}.  (@emphx{Not a Number} is a special value used to "
-"represent undefined or unrepresentable numerical results, such as @T{0/0}.)  "
-"Tables can be @emph{heterogeneous}; that is, they can contain values of all "
-"types (except @nil).  Any key with value @nil is not considered part of the "
-"table.  Conversely, any key that is not part of a table has an associated "
-"value @nil."
+"The type @emph{table} implements @x{associative arrays}, that is, @x{arrays} that can be indexed not only with numbers, but with any Lua value except @nil and @x{NaN}.  (@emphx{Not a Number} is a special "
+"value used to represent undefined or unrepresentable numerical results, such as @T{0/0}.)  Tables can be @emph{heterogeneous}; that is, they can contain values of all types (except @nil).  Any key with value "
+"@nil is not considered part of the table.  Conversely, any key that is not part of a table has an associated value @nil."
 msgstr ""
 
 #. type: Plain text
 #: manual.of.partial/001-part1.of:159
 msgid ""
-"Tables are the sole data-structuring mechanism in Lua; they can be used to "
-"represent ordinary arrays, lists, symbol tables, sets, records, graphs, "
-"trees, etc.  To represent @x{records}, Lua uses the field name as an index.  "
-"The language supports this representation by providing @id{a.name} as "
-"syntactic sugar for @T{a[\"name\"]}.  There are several convenient ways to "
-"create tables in Lua @see{tableconstructor}."
+"Tables are the sole data-structuring mechanism in Lua; they can be used to represent ordinary arrays, lists, symbol tables, sets, records, graphs, trees, etc.  To represent @x{records}, Lua uses the field "
+"name as an index.  The language supports this representation by providing @id{a.name} as syntactic sugar for @T{a[\"name\"]}.  There are several convenient ways to create tables in Lua @see{tableconstructor}."
 msgstr ""
 
 #. type: Plain text
 #: manual.of.partial/001-part1.of:166
 msgid ""
-"Like indices, the values of table fields can be of any type.  In particular, "
-"because functions are first-class values, table fields can contain "
-"functions.  Thus tables can also carry @emph{methods} @see{func-def}."
+"Like indices, the values of table fields can be of any type.  In particular, because functions are first-class values, table fields can contain functions.  Thus tables can also carry @emph{methods} @see{func-"
+"def}."
 msgstr ""
 
 #. type: Plain text
 #: manual.of.partial/001-part1.of:185
 msgid ""
-"The indexing of tables follows the definition of raw equality in the "
-"language.  The expressions @T{a[i]} and @T{a[j]} denote the same table "
-"element if and only if @id{i} and @id{j} are raw equal (that is, equal "
-"without metamethods).  In particular, floats with integral values are equal "
-"to their respective integers (e.g., @T{1.0 == 1}).  To avoid ambiguities, "
-"any float with integral value used as a key is converted to its respective "
-"integer.  For instance, if you write @T{a[2.0] = true}, the actual key "
-"inserted into the table will be the integer @T{2}.  (On the other hand, 2 "
-"and @St{2} are different Lua values and therefore denote different table "
-"entries.)"
+"The indexing of tables follows the definition of raw equality in the language.  The expressions @T{a[i]} and @T{a[j]} denote the same table element if and only if @id{i} and @id{j} are raw equal (that is, "
+"equal without metamethods).  In particular, floats with integral values are equal to their respective integers (e.g., @T{1.0 == 1}).  To avoid ambiguities, any float with integral value used as a key is "
+"converted to its respective integer.  For instance, if you write @T{a[2.0] = true}, the actual key inserted into the table will be the integer @T{2}.  (On the other hand, 2 and @St{2} are different Lua values "
+"and therefore denote different table entries.)"
 msgstr ""
 
 #. type: Plain text
 #: manual.of.partial/001-part1.of:193
 msgid ""
-"Tables, functions, threads, and (full) userdata values are @emph{objects}: "
-"variables do not actually @emph{contain} these values, only "
-"@emph{references} to them.  Assignment, parameter passing, and function "
-"returns always manipulate references to such values; these operations do not "
-"imply any kind of copy."
+"Tables, functions, threads, and (full) userdata values are @emph{objects}: variables do not actually @emph{contain} these values, only @emph{references} to them.  Assignment, parameter passing, and function "
+"returns always manipulate references to such values; these operations do not imply any kind of copy."
 msgstr ""
 
 #. type: Plain text
 #: manual.of.partial/001-part1.of:196
-msgid ""
-"The library function @Lid{type} returns a string describing the type of a "
-"given value @see{predefined}."
+msgid "The library function @Lid{type} returns a string describing the type of a given value @see{predefined}."
 msgstr ""
 
 #. type: Plain text
@@ -264,22 +189,15 @@ msgstr ""
 #. type: Plain text
 #: manual.of.partial/001-part1.of:208
 msgid ""
-"As will be discussed in @refsec{variables} and @refsec{assignment}, any "
-"reference to a free name (that is, a name not bound to any declaration) "
-"@id{var} is syntactically translated to @T{_ENV.var}.  Moreover, every chunk "
-"is compiled in the scope of an external local variable named @id{_ENV} "
-"@see{chunks}, so @id{_ENV} itself is never a free name in a chunk."
+"As will be discussed in @refsec{variables} and @refsec{assignment}, any reference to a free name (that is, a name not bound to any declaration) @id{var} is syntactically translated to @T{_ENV.var}.  Moreover, "
+"every chunk is compiled in the scope of an external local variable named @id{_ENV} @see{chunks}, so @id{_ENV} itself is never a free name in a chunk."
 msgstr ""
 
 #. type: Plain text
 #: manual.of.partial/001-part1.of:217
 msgid ""
-"Despite the existence of this external @id{_ENV} variable and the "
-"translation of free names, @id{_ENV} is a completely regular name.  In "
-"particular, you can define new variables and parameters with that name.  "
-"Each reference to a free name uses the @id{_ENV} that is visible at that "
-"point in the program, following the usual visibility rules of Lua "
-"@see{visibility}."
+"Despite the existence of this external @id{_ENV} variable and the translation of free names, @id{_ENV} is a completely regular name.  In particular, you can define new variables and parameters with that "
+"name.  Each reference to a free name uses the @id{_ENV} that is visible at that point in the program, following the usual visibility rules of Lua @see{visibility}."
 msgstr ""
 
 #. type: Plain text
@@ -290,23 +208,16 @@ msgstr ""
 #. type: Plain text
 #: manual.of.partial/001-part1.of:224
 msgid ""
-"Lua keeps a distinguished environment called the @def{global environment}.  "
-"This value is kept at a special index in the C registry @see{registry}.  In "
-"Lua, the global variable @Lid{_G} is initialized with this same value.  "
-"(@Lid{_G} is never used internally.)"
+"Lua keeps a distinguished environment called the @def{global environment}.  This value is kept at a special index in the C registry @see{registry}.  In Lua, the global variable @Lid{_G} is initialized with "
+"this same value.  (@Lid{_G} is never used internally.)"
 msgstr ""
 
 #. type: Plain text
 #: manual.of.partial/001-part1.of:237
 msgid ""
-"When Lua loads a chunk, the default value for its @id{_ENV} upvalue is the "
-"global environment @seeF{load}.  Therefore, by default, free names in Lua "
-"code refer to entries in the global environment (and, therefore, they are "
-"also called @def{global variables}).  Moreover, all standard libraries are "
-"loaded in the global environment and some functions there operate on that "
-"environment.  You can use @Lid{load} (or @Lid{loadfile})  to load a chunk "
-"with a different environment.  (In C, you have to load the chunk and then "
-"change the value of its first upvalue.)"
+"When Lua loads a chunk, the default value for its @id{_ENV} upvalue is the global environment @seeF{load}.  Therefore, by default, free names in Lua code refer to entries in the global environment (and, "
+"therefore, they are also called @def{global variables}).  Moreover, all standard libraries are loaded in the global environment and some functions there operate on that environment.  You can use @Lid{load} "
+"(or @Lid{loadfile})  to load a chunk with a different environment.  (In C, you have to load the chunk and then change the value of its first upvalue.)"
 msgstr ""
 
 #. type: Plain text
@@ -317,46 +228,30 @@ msgstr ""
 #. type: Plain text
 #: manual.of.partial/001-part1.of:252
 msgid ""
-"Because Lua is an embedded extension language, all Lua actions start from "
-"@N{C code} in the host program calling a function from the Lua library.  "
-"(When you use Lua standalone, the @id{lua} application is the host program.)  "
-"Whenever an error occurs during the compilation or execution of a Lua chunk, "
-"control returns to the host, which can take appropriate measures (such as "
-"printing an error message)."
+"Because Lua is an embedded extension language, all Lua actions start from @N{C code} in the host program calling a function from the Lua library.  (When you use Lua standalone, the @id{lua} application is the "
+"host program.)  Whenever an error occurs during the compilation or execution of a Lua chunk, control returns to the host, which can take appropriate measures (such as printing an error message)."
 msgstr ""
 
 #. type: Plain text
 #: manual.of.partial/001-part1.of:258
 msgid ""
-"Lua code can explicitly generate an error by calling the @Lid{error} "
-"function.  If you need to catch errors in Lua, you can use @Lid{pcall} or "
-"@Lid{xpcall} to call a given function in @emphx{protected mode}."
+"Lua code can explicitly generate an error by calling the @Lid{error} function.  If you need to catch errors in Lua, you can use @Lid{pcall} or @Lid{xpcall} to call a given function in @emphx{protected mode}."
 msgstr ""
 
 #. type: Plain text
 #: manual.of.partial/001-part1.of:266
 msgid ""
-"Whenever there is an error, an @def{error object} (also called an @def{error "
-"message})  is propagated with information about the error.  Lua itself only "
-"generates errors whose error object is a string, but programs may generate "
-"errors with any value as the error object.  It is up to the Lua program or "
-"its host to handle such error objects."
+"Whenever there is an error, an @def{error object} (also called an @def{error message})  is propagated with information about the error.  Lua itself only generates errors whose error object is a string, but "
+"programs may generate errors with any value as the error object.  It is up to the Lua program or its host to handle such error objects."
 msgstr ""
 
 #. type: Plain text
 #: manual.of.partial/001-part1.of:284
 msgid ""
-"When you use @Lid{xpcall} or @Lid{lua_pcall}, you may give a @def{message "
-"handler} to be called in case of errors.  This function is called with the "
-"original error object and returns a new error object.  It is called before "
-"the error unwinds the stack, so that it can gather more information about "
-"the error, for instance by inspecting the stack and creating a stack "
-"traceback.  This message handler is still protected by the protected call; "
-"so, an error inside the message handler will call the message handler "
-"again.  If this loop goes on for too long, Lua breaks it and returns an "
-"appropriate message.  (The message handler is called only for regular "
-"runtime errors.  It is not called for memory-allocation errors nor for "
-"errors while running finalizers.)"
+"When you use @Lid{xpcall} or @Lid{lua_pcall}, you may give a @def{message handler} to be called in case of errors.  This function is called with the original error object and returns a new error object.  It "
+"is called before the error unwinds the stack, so that it can gather more information about the error, for instance by inspecting the stack and creating a stack traceback.  This message handler is still "
+"protected by the protected call; so, an error inside the message handler will call the message handler again.  If this loop goes on for too long, Lua breaks it and returns an appropriate message.  (The "
+"message handler is called only for regular runtime errors.  It is not called for memory-allocation errors nor for errors while running finalizers.)"
 msgstr ""
 
 #. type: Plain text
@@ -367,78 +262,56 @@ msgstr ""
 #. type: Plain text
 #: manual.of.partial/001-part1.of:299
 msgid ""
-"Every value in Lua can have a @emph{metatable}.  This @def{metatable} is an "
-"ordinary Lua table that defines the behavior of the original value under "
-"certain special operations.  You can change several aspects of the behavior "
-"of operations over a value by setting specific fields in its metatable.  For "
-"instance, when a non-numeric value is the operand of an addition, Lua checks "
-"for a function in the field @St{__add} of the value's metatable.  If it "
-"finds one, Lua calls this function to perform the addition."
+"Every value in Lua can have a @emph{metatable}.  This @def{metatable} is an ordinary Lua table that defines the behavior of the original value under certain special operations.  You can change several aspects "
+"of the behavior of operations over a value by setting specific fields in its metatable.  For instance, when a non-numeric value is the operand of an addition, Lua checks for a function in the field @St{__add} "
+"of the value's metatable.  If it finds one, Lua calls this function to perform the addition."
 msgstr ""
 
 #. type: Plain text
 #: manual.of.partial/001-part1.of:305
 msgid ""
-"The key for each event in a metatable is a string with the event name "
-"prefixed by two underscores; the corresponding values are called "
-"@def{metamethods}.  In the previous example, the key is @St{__add} and the "
-"metamethod is the function that performs the addition."
+"The key for each event in a metatable is a string with the event name prefixed by two underscores; the corresponding values are called @def{metamethods}.  In the previous example, the key is @St{__add} and "
+"the metamethod is the function that performs the addition."
 msgstr ""
 
 #. type: Plain text
 #: manual.of.partial/001-part1.of:314
 msgid ""
-"You can query the metatable of any value using the @Lid{getmetatable} "
-"function.  Lua queries metamethods in metatables using a raw access "
-"@seeF{rawget}.  So, to retrieve the metamethod for event @id{ev} in object "
-"@id{o}, Lua does the equivalent to the following code: @verbatim{ "
-"rawget(getmetatable(@rep{o}) or {}, \"__@rep{ev}\")  }"
+"You can query the metatable of any value using the @Lid{getmetatable} function.  Lua queries metamethods in metatables using a raw access @seeF{rawget}.  So, to retrieve the metamethod for event @id{ev} in "
+"object @id{o}, Lua does the equivalent to the following code: @verbatim{ rawget(getmetatable(@rep{o}) or {}, \"__@rep{ev}\")  }"
 msgstr ""
 
 #. type: Plain text
 #: manual.of.partial/001-part1.of:320
 msgid ""
-"You can replace the metatable of tables using the @Lid{setmetatable} "
-"function.  You cannot change the metatable of other types from Lua code "
-"(except by using the @link{debuglib|debug library}); you should use the @N{C "
-"API} for that."
+"You can replace the metatable of tables using the @Lid{setmetatable} function.  You cannot change the metatable of other types from Lua code (except by using the @link{debuglib|debug library}); you should use "
+"the @N{C API} for that."
 msgstr ""
 
 #. type: Plain text
 #: manual.of.partial/001-part1.of:328
 msgid ""
-"Tables and full userdata have individual metatables (although multiple "
-"tables and userdata can share their metatables).  Values of all other types "
-"share one single metatable per type; that is, there is one single metatable "
-"for all numbers, one for all strings, etc.  By default, a value has no "
-"metatable, but the string library sets a metatable for the string type "
-"@see{strlib}."
+"Tables and full userdata have individual metatables (although multiple tables and userdata can share their metatables).  Values of all other types share one single metatable per type; that is, there is one "
+"single metatable for all numbers, one for all strings, etc.  By default, a value has no metatable, but the string library sets a metatable for the string type @see{strlib}."
 msgstr ""
 
 #. type: Plain text
 #: manual.of.partial/001-part1.of:334
 msgid ""
-"A metatable controls how an object behaves in arithmetic operations, bitwise "
-"operations, order comparisons, concatenation, length operation, calls, and "
-"indexing.  A metatable also can define a function to be called when a "
-"userdata or a table is @link{GC|garbage collected}."
+"A metatable controls how an object behaves in arithmetic operations, bitwise operations, order comparisons, concatenation, length operation, calls, and indexing.  A metatable also can define a function to be "
+"called when a userdata or a table is @link{GC|garbage collected}."
 msgstr ""
 
 #. type: Plain text
 #: manual.of.partial/001-part1.of:342
 msgid ""
-"For the unary operators (negation, length, and bitwise NOT), the metamethod "
-"is computed and called with a dummy second operand, equal to the first one.  "
-"This extra operand is only to simplify Lua's internals (by making these "
-"operators behave like a binary operation)  and may be removed in future "
-"versions.  (For most uses this extra operand is irrelevant.)"
+"For the unary operators (negation, length, and bitwise NOT), the metamethod is computed and called with a dummy second operand, equal to the first one.  This extra operand is only to simplify Lua's internals "
+"(by making these operators behave like a binary operation)  and may be removed in future versions.  (For most uses this extra operand is irrelevant.)"
 msgstr ""
 
 #. type: Plain text
 #: manual.of.partial/001-part1.of:345
-msgid ""
-"A detailed list of events controlled by metatables is given next.  Each "
-"operation is identified by its corresponding key."
+msgid "A detailed list of events controlled by metatables is given next.  Each operation is identified by its corresponding key."
 msgstr ""
 
 #. type: Plain text
@@ -449,233 +322,166 @@ msgstr ""
 #. type: Plain text
 #: manual.of.partial/001-part1.of:364
 msgid ""
-"@item{@idx{__add}| the addition (@T{+}) operation.  If any operand for an "
-"addition is not a number (nor a string coercible to a number), Lua will try "
-"to call a metamethod.  First, Lua will check the first operand (even if it "
-"is valid).  If that operand does not define a metamethod for @idx{__add}, "
-"then Lua will check the second operand.  If Lua can find a metamethod, it "
-"calls the metamethod with the two operands as arguments, and the result of "
-"the call (adjusted to one value)  is the result of the operation.  "
-"Otherwise, it raises an error.  }"
+"@item{@idx{__add}| the addition (@T{+}) operation.  If any operand for an addition is not a number (nor a string coercible to a number), Lua will try to call a metamethod.  First, Lua will check the first "
+"operand (even if it is valid).  If that operand does not define a metamethod for @idx{__add}, then Lua will check the second operand.  If Lua can find a metamethod, it calls the metamethod with the two "
+"operands as arguments, and the result of the call (adjusted to one value)  is the result of the operation.  Otherwise, it raises an error.  }"
 msgstr ""
 
 #. type: Plain text
 #: manual.of.partial/001-part1.of:369
-msgid ""
-"@item{@idx{__sub}| the subtraction (@T{-}) operation.  Behavior similar to "
-"the addition operation.  }"
+msgid "@item{@idx{__sub}| the subtraction (@T{-}) operation.  Behavior similar to the addition operation.  }"
 msgstr ""
 
 #. type: Plain text
 #: manual.of.partial/001-part1.of:374
-msgid ""
-"@item{@idx{__mul}| the multiplication (@T{*}) operation.  Behavior similar "
-"to the addition operation.  }"
+msgid "@item{@idx{__mul}| the multiplication (@T{*}) operation.  Behavior similar to the addition operation.  }"
 msgstr ""
 
 #. type: Plain text
 #: manual.of.partial/001-part1.of:379
-msgid ""
-"@item{@idx{__div}| the division (@T{/}) operation.  Behavior similar to the "
-"addition operation.  }"
+msgid "@item{@idx{__div}| the division (@T{/}) operation.  Behavior similar to the addition operation.  }"
 msgstr ""
 
 #. type: Plain text
 #: manual.of.partial/001-part1.of:384
-msgid ""
-"@item{@idx{__mod}| the modulo (@T{%}) operation.  Behavior similar to the "
-"addition operation.  }"
+msgid "@item{@idx{__mod}| the modulo (@T{%}) operation.  Behavior similar to the addition operation.  }"
 msgstr ""
 
 #. type: Plain text
 #: manual.of.partial/001-part1.of:389
-msgid ""
-"@item{@idx{__pow}| the exponentiation (@T{^}) operation.  Behavior similar "
-"to the addition operation.  }"
+msgid "@item{@idx{__pow}| the exponentiation (@T{^}) operation.  Behavior similar to the addition operation.  }"
 msgstr ""
 
 #. type: Plain text
 #: manual.of.partial/001-part1.of:394
-msgid ""
-"@item{@idx{__unm}| the negation (unary @T{-}) operation.  Behavior similar "
-"to the addition operation.  }"
+msgid "@item{@idx{__unm}| the negation (unary @T{-}) operation.  Behavior similar to the addition operation.  }"
 msgstr ""
 
 #. type: Plain text
 #: manual.of.partial/001-part1.of:399
-msgid ""
-"@item{@idx{__idiv}| the floor division (@T{//}) operation.  Behavior similar "
-"to the addition operation.  }"
+msgid "@item{@idx{__idiv}| the floor division (@T{//}) operation.  Behavior similar to the addition operation.  }"
 msgstr ""
 
 #. type: Plain text
 #: manual.of.partial/001-part1.of:407
 msgid ""
-"@item{@idx{__band}| the bitwise AND (@T{&}) operation.  Behavior similar to "
-"the addition operation, except that Lua will try a metamethod if any operand "
-"is neither an integer nor a value coercible to an integer @see{coercion}.  }"
+"@item{@idx{__band}| the bitwise AND (@T{&}) operation.  Behavior similar to the addition operation, except that Lua will try a metamethod if any operand is neither an integer nor a value coercible to an "
+"integer @see{coercion}.  }"
 msgstr ""
 
 #. type: Plain text
 #: manual.of.partial/001-part1.of:412
-msgid ""
-"@item{@idx{__bor}| the bitwise OR (@T{|}) operation.  Behavior similar to "
-"the bitwise AND operation.  }"
+msgid "@item{@idx{__bor}| the bitwise OR (@T{|}) operation.  Behavior similar to the bitwise AND operation.  }"
 msgstr ""
 
 #. type: Plain text
 #: manual.of.partial/001-part1.of:417
-msgid ""
-"@item{@idx{__bxor}| the bitwise exclusive OR (binary @T{~}) operation.  "
-"Behavior similar to the bitwise AND operation.  }"
+msgid "@item{@idx{__bxor}| the bitwise exclusive OR (binary @T{~}) operation.  Behavior similar to the bitwise AND operation.  }"
 msgstr ""
 
 #. type: Plain text
 #: manual.of.partial/001-part1.of:422
-msgid ""
-"@item{@idx{__bnot}| the bitwise NOT (unary @T{~}) operation.  Behavior "
-"similar to the bitwise AND operation.  }"
+msgid "@item{@idx{__bnot}| the bitwise NOT (unary @T{~}) operation.  Behavior similar to the bitwise AND operation.  }"
 msgstr ""
 
 #. type: Plain text
 #: manual.of.partial/001-part1.of:427
-msgid ""
-"@item{@idx{__shl}| the bitwise left shift (@T{<<}) operation.  Behavior "
-"similar to the bitwise AND operation.  }"
+msgid "@item{@idx{__shl}| the bitwise left shift (@T{<<}) operation.  Behavior similar to the bitwise AND operation.  }"
 msgstr ""
 
 #. type: Plain text
 #: manual.of.partial/001-part1.of:432
-msgid ""
-"@item{@idx{__shr}| the bitwise right shift (@T{>>}) operation.  Behavior "
-"similar to the bitwise AND operation.  }"
+msgid "@item{@idx{__shr}| the bitwise right shift (@T{>>}) operation.  Behavior similar to the bitwise AND operation.  }"
 msgstr ""
 
 #. type: Plain text
 #: manual.of.partial/001-part1.of:440
 msgid ""
-"@item{@idx{__concat}| the concatenation (@T{..}) operation.  Behavior "
-"similar to the addition operation, except that Lua will try a metamethod if "
-"any operand is neither a string nor a number (which is always coercible to a "
-"string).  }"
+"@item{@idx{__concat}| the concatenation (@T{..}) operation.  Behavior similar to the addition operation, except that Lua will try a metamethod if any operand is neither a string nor a number (which is always "
+"coercible to a string).  }"
 msgstr ""
 
 #. type: Plain text
 #: manual.of.partial/001-part1.of:454
 msgid ""
-"@item{@idx{__len}| the length (@T{#}) operation.  If the object is not a "
-"string, Lua will try its metamethod.  If there is a metamethod, Lua calls it "
-"with the object as argument, and the result of the call (always adjusted to "
-"one value)  is the result of the operation.  If there is no metamethod but "
-"the object is a table, then Lua uses the table length operation "
-"@see{len-op}.  Otherwise, Lua raises an error.  }"
+"@item{@idx{__len}| the length (@T{#}) operation.  If the object is not a string, Lua will try its metamethod.  If there is a metamethod, Lua calls it with the object as argument, and the result of the call "
+"(always adjusted to one value)  is the result of the operation.  If there is no metamethod but the object is a table, then Lua uses the table length operation @see{len-op}.  Otherwise, Lua raises an error.  }"
 msgstr ""
 
 #. type: Plain text
 #: manual.of.partial/001-part1.of:463
 msgid ""
-"@item{@idx{__eq}| the equal (@T{==}) operation.  Behavior similar to the "
-"addition operation, except that Lua will try a metamethod only when the "
-"values being compared are either both tables or both full userdata and they "
-"are not primitively equal.  The result of the call is always converted to a "
-"boolean.  }"
+"@item{@idx{__eq}| the equal (@T{==}) operation.  Behavior similar to the addition operation, except that Lua will try a metamethod only when the values being compared are either both tables or both full "
+"userdata and they are not primitively equal.  The result of the call is always converted to a boolean.  }"
 msgstr ""
 
 #. type: Plain text
 #: manual.of.partial/001-part1.of:471
 msgid ""
-"@item{@idx{__lt}| the less than (@T{<}) operation.  Behavior similar to the "
-"addition operation, except that Lua will try a metamethod only when the "
-"values being compared are neither both numbers nor both strings.  The result "
-"of the call is always converted to a boolean.  }"
+"@item{@idx{__lt}| the less than (@T{<}) operation.  Behavior similar to the addition operation, except that Lua will try a metamethod only when the values being compared are neither both numbers nor both "
+"strings.  The result of the call is always converted to a boolean.  }"
 msgstr ""
 
 #. type: Plain text
 #: manual.of.partial/001-part1.of:486
 msgid ""
-"@item{@idx{__le}| the less equal (@T{<=}) operation.  Unlike other "
-"operations, the less-equal operation can use two different events.  First, "
-"Lua looks for the @idx{__le} metamethod in both operands, like in the less "
-"than operation.  If it cannot find such a metamethod, then it will try the "
-"@idx{__lt} metamethod, assuming that @T{a <= b} is equivalent to @T{not (b < "
-"a)}.  As with the other comparison operators, the result is always a "
-"boolean.  (This use of the @idx{__lt} event can be removed in future "
-"versions; it is also slower than a real @idx{__le} metamethod.)  }"
+"@item{@idx{__le}| the less equal (@T{<=}) operation.  Unlike other operations, the less-equal operation can use two different events.  First, Lua looks for the @idx{__le} metamethod in both operands, like in "
+"the less than operation.  If it cannot find such a metamethod, then it will try the @idx{__lt} metamethod, assuming that @T{a <= b} is equivalent to @T{not (b < a)}.  As with the other comparison operators, "
+"the result is always a boolean.  (This use of the @idx{__lt} event can be removed in future versions; it is also slower than a real @idx{__le} metamethod.)  }"
 msgstr ""
 
 #. type: Plain text
 #: manual.of.partial/001-part1.of:492
-msgid ""
-"@item{@idx{__index}| The indexing access @T{table[key]}.  This event happens "
-"when @id{table} is not a table or when @id{key} is not present in "
-"@id{table}.  The metamethod is looked up in @id{table}."
+msgid "@item{@idx{__index}| The indexing access @T{table[key]}.  This event happens when @id{table} is not a table or when @id{key} is not present in @id{table}.  The metamethod is looked up in @id{table}."
 msgstr ""
 
 #. type: Plain text
 #: manual.of.partial/001-part1.of:505
 msgid ""
-"Despite the name, the metamethod for this event can be either a function or "
-"a table.  If it is a function, it is called with @id{table} and @id{key} as "
-"arguments, and the result of the call (adjusted to one value)  is the result "
-"of the operation.  If it is a table, the final result is the result of "
-"indexing this table with @id{key}.  (This indexing is regular, not raw, and "
-"therefore can trigger another metamethod.)  }"
+"Despite the name, the metamethod for this event can be either a function or a table.  If it is a function, it is called with @id{table} and @id{key} as arguments, and the result of the call (adjusted to one "
+"value)  is the result of the operation.  If it is a table, the final result is the result of indexing this table with @id{key}.  (This indexing is regular, not raw, and therefore can trigger another "
+"metamethod.)  }"
 msgstr ""
 
 #. type: Plain text
 #: manual.of.partial/001-part1.of:512
 msgid ""
-"@item{@idx{__newindex}| The indexing assignment @T{table[key] = value}.  "
-"Like the index event, this event happens when @id{table} is not a table or "
-"when @id{key} is not present in @id{table}.  The metamethod is looked up in "
-"@id{table}."
+"@item{@idx{__newindex}| The indexing assignment @T{table[key] = value}.  Like the index event, this event happens when @id{table} is not a table or when @id{key} is not present in @id{table}.  The metamethod "
+"is looked up in @id{table}."
 msgstr ""
 
 #. type: Plain text
 #: manual.of.partial/001-part1.of:521
 msgid ""
-"Like with indexing, the metamethod for this event can be either a function "
-"or a table.  If it is a function, it is called with @id{table}, @id{key}, "
-"and @id{value} as arguments.  If it is a table, Lua does an indexing "
-"assignment to this table with the same key and value.  (This assignment is "
-"regular, not raw, and therefore can trigger another metamethod.)"
+"Like with indexing, the metamethod for this event can be either a function or a table.  If it is a function, it is called with @id{table}, @id{key}, and @id{value} as arguments.  If it is a table, Lua does an "
+"indexing assignment to this table with the same key and value.  (This assignment is regular, not raw, and therefore can trigger another metamethod.)"
 msgstr ""
 
 #. type: Plain text
 #: manual.of.partial/001-part1.of:528
-msgid ""
-"Whenever there is a @idx{__newindex} metamethod, Lua does not perform the "
-"primitive assignment.  (If necessary, the metamethod itself can call "
-"@Lid{rawset} to do the assignment.)  }"
+msgid "Whenever there is a @idx{__newindex} metamethod, Lua does not perform the primitive assignment.  (If necessary, the metamethod itself can call @Lid{rawset} to do the assignment.)  }"
 msgstr ""
 
 #. type: Plain text
 #: manual.of.partial/001-part1.of:541
 msgid ""
-"@item{@idx{__call}| The call operation @T{func(args)}.  This event happens "
-"when Lua tries to call a non-function value (that is, @id{func} is not a "
-"function).  The metamethod is looked up in @id{func}.  If present, the "
-"metamethod is called with @id{func} as its first argument, followed by the "
-"arguments of the original call (@id{args}).  All results of the call are the "
-"result of the operation.  (This is the only metamethod that allows multiple "
-"results.)  }"
+"@item{@idx{__call}| The call operation @T{func(args)}.  This event happens when Lua tries to call a non-function value (that is, @id{func} is not a function).  The metamethod is looked up in @id{func}.  If "
+"present, the metamethod is called with @id{func} as its first argument, followed by the arguments of the original call (@id{args}).  All results of the call are the result of the operation.  (This is the only "
+"metamethod that allows multiple results.)  }"
 msgstr ""
 
 #. type: Plain text
 #: manual.of.partial/001-part1.of:548
 msgid ""
-"It is a good practice to add all needed metamethods to a table before "
-"setting it as a metatable of some object.  In particular, the @idx{__gc} "
-"metamethod works only when this order is followed @see{finalizers}."
+"It is a good practice to add all needed metamethods to a table before setting it as a metatable of some object.  In particular, the @idx{__gc} metamethod works only when this order is followed "
+"@see{finalizers}."
 msgstr ""
 
 #. type: Plain text
 #: manual.of.partial/001-part1.of:555
 msgid ""
-"Because metatables are regular tables, they can contain arbitrary fields, "
-"not only the event names defined above.  Some functions in the standard "
-"library (e.g., @Lid{tostring})  use other fields in metatables for their own "
-"purposes."
+"Because metatables are regular tables, they can contain arbitrary fields, not only the event names defined above.  Some functions in the standard library (e.g., @Lid{tostring})  use other fields in metatables "
+"for their own purposes."
 msgstr ""
 
 #. type: Plain text
@@ -686,60 +492,41 @@ msgstr ""
 #. type: Plain text
 #: manual.of.partial/001-part1.of:569
 msgid ""
-"Lua performs automatic memory management.  This means that you do not have "
-"to worry about allocating memory for new objects or freeing it when the "
-"objects are no longer needed.  Lua manages memory automatically by running a "
-"@def{garbage collector} to collect all @emph{dead objects} (that is, objects "
-"that are no longer accessible from Lua).  All memory used by Lua is subject "
-"to automatic management: strings, tables, userdata, functions, threads, "
-"internal structures, etc."
+"Lua performs automatic memory management.  This means that you do not have to worry about allocating memory for new objects or freeing it when the objects are no longer needed.  Lua manages memory "
+"automatically by running a @def{garbage collector} to collect all @emph{dead objects} (that is, objects that are no longer accessible from Lua).  All memory used by Lua is subject to automatic management: "
+"strings, tables, userdata, functions, threads, internal structures, etc."
 msgstr ""
 
 #. type: Plain text
 #: manual.of.partial/001-part1.of:576
 msgid ""
-"Lua implements an incremental mark-and-sweep collector.  It uses two numbers "
-"to control its garbage-collection cycles: the @def{garbage-collector pause} "
-"and the @def{garbage-collector step multiplier}.  Both use percentage points "
-"as units (e.g., a value of 100 means an internal value of 1)."
+"Lua implements an incremental mark-and-sweep collector.  It uses two numbers to control its garbage-collection cycles: the @def{garbage-collector pause} and the @def{garbage-collector step multiplier}.  Both "
+"use percentage points as units (e.g., a value of 100 means an internal value of 1)."
 msgstr ""
 
 #. type: Plain text
 #: manual.of.partial/001-part1.of:584
 msgid ""
-"The garbage-collector pause controls how long the collector waits before "
-"starting a new cycle.  Larger values make the collector less aggressive.  "
-"Values smaller than 100 mean the collector will not wait to start a new "
-"cycle.  A value of 200 means that the collector waits for the total memory "
-"in use to double before starting a new cycle."
+"The garbage-collector pause controls how long the collector waits before starting a new cycle.  Larger values make the collector less aggressive.  Values smaller than 100 mean the collector will not wait to "
+"start a new cycle.  A value of 200 means that the collector waits for the total memory in use to double before starting a new cycle."
 msgstr ""
 
 #. type: Plain text
 #: manual.of.partial/001-part1.of:596
 msgid ""
-"The garbage-collector step multiplier controls the relative speed of the "
-"collector relative to memory allocation.  Larger values make the collector "
-"more aggressive but also increase the size of each incremental step.  You "
-"should not use values smaller than 100, because they make the collector too "
-"slow and can result in the collector never finishing a cycle.  The default "
-"is 200, which means that the collector runs at @Q{twice} the speed of memory "
-"allocation."
+"The garbage-collector step multiplier controls the relative speed of the collector relative to memory allocation.  Larger values make the collector more aggressive but also increase the size of each "
+"incremental step.  You should not use values smaller than 100, because they make the collector too slow and can result in the collector never finishing a cycle.  The default is 200, which means that the "
+"collector runs at @Q{twice} the speed of memory allocation."
 msgstr ""
 
 #. type: Plain text
 #: manual.of.partial/001-part1.of:605
 msgid ""
-"If you set the step multiplier to a very large number (larger than 10% of "
-"the maximum number of bytes that the program may use), the collector behaves "
-"like a stop-the-world collector.  If you then set the pause to 200, the "
-"collector behaves as in old Lua versions, doing a complete collection every "
-"time Lua doubles its memory usage."
+"If you set the step multiplier to a very large number (larger than 10% of the maximum number of bytes that the program may use), the collector behaves like a stop-the-world collector.  If you then set the "
+"pause to 200, the collector behaves as in old Lua versions, doing a complete collection every time Lua doubles its memory usage."
 msgstr ""
 
 #. type: Plain text
 #: manual.of.partial/001-part1.of:610
-msgid ""
-"You can change these numbers by calling @Lid{lua_gc} in C or "
-"@Lid{collectgarbage} in Lua.  You can also use these functions to control "
-"the collector directly (e.g., stop and restart it)."
+msgid "You can change these numbers by calling @Lid{lua_gc} in C or @Lid{collectgarbage} in Lua.  You can also use these functions to control the collector directly (e.g., stop and restart it)."
 msgstr ""
