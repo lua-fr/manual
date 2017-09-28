@@ -160,9 +160,19 @@ local function block_capture(t)
 	return { tag = '#block', content = t }
 end
 
+local ligne = 1
+local function compteur(s,i,c)
+	ligne = ligne + 1
+	return i
+end
+
+local function pmt(p)
+	return lpeg.Cmt(p,compteur)
+end
+
 local lang = lpeg.P{
 	"S",
-	NL = (lpeg.P"\r"^-1 * lpeg.P"\n"),
+	NL = pmt(lpeg.P"\r"^-1 * lpeg.P"\n"),
 	normal_word = ("{}" + (lpeg.P(1) - lpeg.S"{}@\n")) ^ 1,
 	normal_words = lpeg.V"normal_word" ,--* (lpeg.V"NL" * lpeg.V"normal_word") ^ 0 ,
 	block = "{" * lpeg.Ct((lpeg.V"text"))^-1 * "}",
@@ -420,8 +430,13 @@ if foutname then io.output(foutname) end
 local input_string = io.read('a')
 
 local ast = lang:match(input_string)
-ref_find(ast)
 
-io.write(header)
-io.write(paras_to_html{ tag = '#default', content = ast})
-io.write(footer)
+if #ast > 0 then
+	ref_find(ast)
+
+	io.write(header)
+	io.write(paras_to_html{ tag = '#default', content = ast})
+	io.write(footer)
+else
+	print(line)
+end
