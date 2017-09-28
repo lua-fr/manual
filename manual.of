@@ -195,7 +195,6 @@ The library function @Lid{type} returns a string describing the type
 of a given value @see{predefined}.
 
 }
-
 @sect2{globalenv| @title{Environments and the Global Environment}
 
 As will be discussed in @refsec{variables} and @refsec{assignment},
