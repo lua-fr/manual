@@ -26,6 +26,15 @@ sur le rendu html espéré)
  
 La balise `@C` permet d'insérer des commentaires dans le .of
 
+## Termes techniques, formulations bancales et remarques en vrac
+
+Nous n'avons pas encore décidé si oui ou non nous devions traduire les termes techniques.
+Parmi ces termes se trouvent `chunk`, `string`, `upvalue`, `metamethod`, `metatable`, `garbage collector`…
+
+Le terme `upvalue` est utilisé plusieurs fois avant d'être défini dans le manuel, il s'agit d'une variable locale externe au scope d'une fonction. À voir s'il faut donner le sens la première fois qu'on le rencontre.
+
+Le rôle du `step multiplier` est pas très clair pour le garbage collector. Le découpage d'un cycle en plusieurs étapes non plus.
+
 ## Outils
 
 En attendant d'avoir une première version complète, nous utilisons plusieurs outils :
