@@ -81,8 +81,8 @@ local sub_tag = {
 	['ldots'] = '...',
 	['leq'] = '&le;',
 	['index'] = '', -- je sais pas non plus
-	['ANSI'] = 'ISO&nbsp;C function <code>%s</code>',
-	['CId'] = 'C&nbsp;function <code>%s</code>',
+	['ANSI'] = 'fonction ISO&nbsp;C <code>%s</code>',
+	['CId'] = 'fonction&nbsp;C <code>%s</code>',
 	['Char'] = "'<code>%s</code>'",
 	['M'] = simple_tag 'em',
 	['N'] = function (content) return content:gsub(' ', '&nbsp;') end,
@@ -147,6 +147,7 @@ local function text_capture(text)
 end
 
 local function my_fun(tag, content)
+	assert(type(tag) == 'string')
 	return { tag = tag, content = content or {} }
 end
 
@@ -249,7 +250,7 @@ function refsec_resolv(content)
 end
 
 function see_resolv(content)
-	local format = '(see <a href="#%s">&sect;%s</a>)'
+	local format = '(voir <a href="#%s">&sect;%s</a>)'
 	local id = section[content]
 	return string.format(format, id, id)
 end
@@ -379,20 +380,21 @@ end
 local header = [[
 <html>
 <head>
-<title>Lua 5.3 Reference Manual</title>
-<link REL="stylesheet" TYPE="text/css" HREF="https://www.lua.org/lua.css"/>
-<link REL="stylesheet" TYPE="text/css" HREF="https://www.lua.org/manual/manual.css"/>
-<meta HTTP-EQUIV="content-type" CONTENT="text/html; charset=utf-8"/>
+<title>Lua 5.3 Manuel de référence</title>
+<link rel="stylesheet" type="text/css" href="https://www.lua.org/lua.css"/>
+<link rel="stylesheet" type="text/css" href="https://www.lua.org/manual/manual.css"/>
+<meta http-equiv="content-type" content="text/html; charset=utf-8"/>
 </head>
 
 <body>
 
 <h1>
-<a HREF="https://www.lua.org/home.html"><img SRC="https://www.lua.org/images/logo.gif" ALT="Lua"/></a>
-Lua 5.3 Reference Manual
+<a href="https://www.lua.org/home.html"><img src="https://www.lua.org/images/logo.gif" alt="Lua"/></a>
+Lua 5.3 Manuel de référence
 </h1>
 
 <p>by Roberto Ierusalimschy, Luiz Henrique de Figueiredo, Waldemar Celes</p>
+<p>traduction par la communauté <a href="https://lua-fr.github.io/">LuaFr</a></p>
 
 <p>
 <small>
@@ -410,10 +412,10 @@ Freely available under the terms of the
 </div>
 ]]
 local footer = [[
-<P CLASS="footer">
+<p class="footer">
 Last update:
 Fri Feb  3 07:26:45 BRST 2017
-</P>
+</p>
 <!--
 Last change: revised for Lua 5.3.4
 -->
@@ -430,13 +432,14 @@ if foutname then io.output(foutname) end
 local input_string = io.read('a')
 
 local ast = lang:match(input_string)
+ref_find(ast)
+local html = paras_to_html{ tag = '#default', content = ast}
+html = html:match('^%s*(.-)%s*$')
 
-if #ast > 0 then
-	ref_find(ast)
-
+if #html > 0 then
 	io.write(header)
 	io.write(paras_to_html{ tag = '#default', content = ast})
 	io.write(footer)
 else
-	print(line)
+	error(string.format('il semble y avoir une erreur en rapport à avec la ligne %d', ligne))
 end
