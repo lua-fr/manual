@@ -23,7 +23,7 @@ L'implémentation décrite dans ce manuel est disponible sur le site officiel de
 
 Comme n'importe quel autre manuel de référence, ce document n'a pas pour but d'enseigner, mais de renseigner.
 Pour discuter des décisions à propos du design de Lua, voir les documents techniques disponibles sur le site de Lua.
-Pour une introduction technique à la programmation en Lua, voir le livre de Roberto, @emphx{Programming in Lua}.
+Pour une introduction technique à la programmation en Lua, voir le livre de Roberto, @{Programming in Lua}.
 
 }
 
@@ -275,7 +275,7 @@ Comportement similaire à l'opération d'addition.
 }
 
 @item{@idx{__div}|
-Opération de devision (@T{/}).
+Opération de division (@T{/}).
 Comportement similaire à l'opération d'addition.
 }
 
