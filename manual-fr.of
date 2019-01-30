@@ -513,65 +513,56 @@ le collecteur (par exemple, pour l'arrêter et le redémarrer).
 
 @sect3{finalizers| @title{Garbage-Collection Metamethods}
 
-You can set garbage-collector metamethods for tables
-and, using the @N{C API},
-for full userdata @see{metatable}.
-These metamethods are also called @def{finalizers}.
-Finalizers allow you to coordinate Lua's garbage collection
-with external resource management
-(such as closing files, network or database connections,
-or freeing your own memory).
+Vous pouvez définir des metamethods pour le garbage-collector dans le cas des tables
+et dans le cas des full userdata avec l'@{API C}.
+Ces metamethods sont également appelées @def{finalizers}.
+Les finalizers permettent de coordonner le garbage-collector
+de Lua avec la gestion de ressources externes, comme la fermeture
+de fichiers, celle de connexions réseaux ou sur des bases de donnée
+ou bien la libération de la mémoire que vous avez vous même allouée.
 
-For an object (table or userdata) to be finalized when collected,
-you must @emph{mark} it for finalization.
+Afin qu'un objet (table ou userdata) soit bien finalisé lors du passage
+du garbage-collector, il doit être @emph{marqué}.
 @index{mark (for finalization)}
-You mark an object for finalization when you set its metatable
-and the metatable has a field indexed by the string @St{__gc}.
-Note that if you set a metatable without a @idx{__gc} field
-and later create that field in the metatable,
-the object will not be marked for finalization.
+Pour marquer un objet, il faut que sa metatable ait un champ
+de clé @St{__gc} lors de son attribution.
+Si la clé @idx{__gc} n'est présente lors de l'association de la metatable
+à un objet, alors celui-ci ne sera pas marqué,
+même si cette clé est rajoutée à la metatable ensuite.
+Quand un objet marqué devient un objet mort,
+il n'est pas immédiatement collecté.
+Lua le place tout d'abord dans une liste et,
+à la suite de la collecte, Lua parcourt cette liste.
+Pour chaque objet, il vérifie le type de sa metamethod @idx{__gc}.
+S'il s'agit bien d'une fonction,
+Lua l'appelle avec l'objet comme unique argument,
+et l'ignore dans le cas contraire.
 
-When a marked object becomes garbage,
-it is not collected immediately by the garbage collector.
-Instead, Lua puts it in a list.
-After the collection,
-Lua goes through that list.
-For each object in the list,
-it checks the object's @idx{__gc} metamethod:
-If it is a function,
-Lua calls it with the object as its single argument;
-if the metamethod is not a function,
-Lua simply ignores it.
+À la fin du cycle de collecte,
+les finalizers des objets sont appelés dans
+l'ordre inverse dans lequel les objets ont été marqués.
+Autrement dit, le premier objet dont le finalizer est appelé
+est le dernier à avoir été marqué dans le programme.
+L'exécution d'un finalizer peut intervenir à tout moment
+lors de l'exécution d'un programme.
 
-At the end of each garbage-collection cycle,
-the finalizers for objects are called in
-the reverse order that the objects were marked for finalization,
-among those collected in that cycle;
-that is, the first finalizer to be called is the one associated
-with the object marked last in the program.
-The execution of each finalizer may occur at any point during
-the execution of the regular code.
+Puisqu'un objet collecté peut encore être utilisé dans son finalizer,
+cet objet (et ceux accessibles par son intermédiaire) peuvent
+échapper à la collecte.@index{resurrection}
+En règle générale, ceci n'est que temporaire avant
+le cycle de collecte suivant.
+Cependant, si le finalizer stocke l'objet dans un espace global
+alors ce dernier peut ne plus être collecté jusqu'à la fin du programme.
+De plus, si le finalizer marque à nouveau l'objet, son (nouveau) finalizer
+sera appelé au cycle suivant alors que l'objet est inaccessible.
+Dans tous les cas,
+la mémoire est libéré uniquement quand l'objet est à la fois inaccessible
+et non marqué.
 
-Because the object being collected must still be used by the finalizer,
-that object (and other objects accessible only through it)
-must be @emph{resurrected} by Lua.@index{resurrection}
-Usually, this resurrection is transient,
-and the object memory is freed in the next garbage-collection cycle.
-However, if the finalizer stores the object in some global place
-(e.g., a global variable),
-then the resurrection is permanent.
-Moreover, if the finalizer marks a finalizing object for finalization again,
-its finalizer will be called again in the next cycle where the
-object is unreachable.
-In any case,
-the object memory is freed only in a GC cycle where
-the object is unreachable and not marked for finalization.
-
-When you close a state @seeF{lua_close},
-Lua calls the finalizers of all objects marked for finalization,
-following the reverse order that they were marked.
-If any finalizer marks objects for collection during that phase,
-these marks have no effect.
+Quand un état Lua est fermé @seeF{lua_close},
+Lua appelle les finalizers de tous les objets marqués dans
+l'ordre inverse de celui dans lequel ils ont été marqués.
+Les objets marqués à nouveau lors de cette phase sont ignorés.
 
 }
 
