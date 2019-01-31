@@ -928,48 +928,44 @@ Les commentaires longs sont souvent utilisés pour désactiver du code temporair
 
 @sect2{variables| @title{Variables}
 
-Variables are places that store values.
-There are three kinds of variables in Lua:
-global variables, local variables, and table fields.
+Les variables servent à stocker des valeurs.
+En Lua, il y a trois types de variables :
+les variables globales, les variables locales et les champs de table.
 
-A single name can denote a global variable or a local variable
-(or a function's formal parameter,
-which is a particular kind of local variable):
+Un nom de variable peut désigner selon le contexte une variable globale ou locale
+(ou un argument de fonction, qui est un cas particulier de variable locale) :
 @Produc{
 @producname{var}@producbody{@bnfNter{Name}}
 }
-@bnfNter{Name} denotes identifiers, as defined in @See{lexical}.
+@bnfNter{Name} correspond aux identifiants, comme défini en @See{lexical}.
 
-Any variable name is assumed to be global unless explicitly declared
-as a local @see{localvar}.
-@x{Local variables} are @emph{lexically scoped}:
-local variables can be freely accessed by functions
-defined inside their scope @see{visibility}.
+Tout nom de variable est supposé globale à moins d'être explicitement déclaré local @see{localvar}.
+@x{Les variable locales} sont contraintes par leur @emph{portée lexicale} :
+elles sont accessibles depuis toutes fonctions définies dans une portée inférieur
+@see{visibility}.
 
-Before the first assignment to a variable, its value is @nil.
+Une variable a pour valeur @nil avant sa première affectation.
 
-Square brackets are used to index a table:
+Le crochet sont utilisés pour accéder au champ d'une table :
 @Produc{
 @producname{var}@producbody{prefixexp @bnfter{[} exp @bnfter{]}}
 }
-The meaning of accesses to table fields can be changed via metatables.
-An access to an indexed variable @T{t[i]} is equivalent to
-a call @T{gettable_event(t,i)}.
-(See @See{metatable} for a complete description of the
-@id{gettable_event} function.
-This function is not defined or callable in Lua.
-We use it here only for explanatory purposes.)
 
-The syntax @id{var.Name} is just syntactic sugar for
-@T{var["Name"]}:
+L'utilisation de metatables permet de modifier la nature de l'accès aux champs d'une table.
+Un accès à un tableau @T{t[i]} peut être équivalente à
+l'appel à une fonction @T{gettable_event(t,i)}.
+(Voir @See{metatable} pour une description des metamethodes permettant cela)
+
+La syntaxe @id{var.Name} est simplement du sucre syntaxique pour
+@T{var["Name"]} :
 @Produc{
 @producname{var}@producbody{prefixexp @bnfter{.} @bnfNter{Name}}
 }
 
-An access to a global variable @id{x}
-is equivalent to @id{_ENV.x}.
-Due to the way that chunks are compiled,
-@id{_ENV} is never a global name @see{globalenv}.
+L'accès à une variable globale @id{x}
+est équivalent à @id{_ENV.x}.
+La variable $id{_ENV} n'est jamais une variable globale @see{globalenv}
+du fait de la manière dont les blocs de codes sont compilés.
 
 }
 
