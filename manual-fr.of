@@ -23,7 +23,7 @@ L'implémentation décrite dans ce manuel est disponible sur le site officiel de
 
 Comme n'importe quel autre manuel de référence, ce document n'a pas pour but d'enseigner, mais de renseigner.
 Pour discuter des décisions à propos du design de Lua, voir les documents techniques disponibles sur le site de Lua.
-Pour une introduction technique à la programmation en Lua, voir le livre de Roberto, @{Programming in Lua}.
+Pour une introduction technique à la programmation en Lua, voir le livre de Roberto, @emphx{Programming in Lua}.
 
 }
 
@@ -514,7 +514,7 @@ le collecteur (par exemple, pour l'arrêter et le redémarrer).
 @sect3{finalizers| @title{Garbage-Collection Metamethods}
 
 Vous pouvez définir des metamethods pour le garbage-collector dans le cas des tables
-et dans le cas des full userdata avec l'@{API C}.
+et dans le cas des full userdata avec l'@N{API C}.
 Ces metamethods sont également appelées @def{finalizers}.
 Les finalizers permettent de coordonner le garbage-collector
 de Lua avec la gestion de ressources externes, comme la fermeture
