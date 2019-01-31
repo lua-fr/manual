@@ -764,21 +764,21 @@ at the end of this manual.
 
 @sect2{lexical| @title{Lexical Conventions}
 
-Lua is a @x{free-form} language.
-It ignores spaces (including new lines) and comments
-between lexical elements (@x{tokens}),
-except as delimiters between @x{names} and @x{keywords}.
+Lua est un langage @x{free-form}.
+Il ignore les espaces (incluant les retours à la ligne) et les commentaires
+entre des éléments lexicaux (@x{tokens}),
+sauf entre des séparateurs entre des @x{noms} et des @x{mots clés}.
 
-@def{Names}
-(also called @def{identifiers})
-in Lua can be any string of letters,
-digits, and underscores,
-not beginning with a digit and
-not being a reserved word.
-Identifiers are used to name variables, table fields, and labels.
+En Lua, les @def{Noms}
+(aussi appelés @def{identifiers})
+peuvent être n'importe quel combinaison de lettres,
+chiffres, et tirets bas,
+qui ne commencent ni par un chiffre,
+ni par un mot réservé.
+Les identifiers sont utilisés pour nommer les variables, les champs de tables et les labels.
 
-The following @def{keywords} are reserved
-and cannot be used as names:
+Les @def{mots clés} suivants sont réservés
+et ne peuvent pas être utilisés comme noms :
 @index{reserved words}
 @verbatim{
 and       break     do        else      elseif    end
@@ -787,15 +787,15 @@ local     nil       not       or        repeat    return
 then      true      until     while
 }
 
-Lua is a case-sensitive language:
-@id{and} is a reserved word, but @id{And} and @id{AND}
-are two different, valid names.
-As a convention,
-programs should avoid creating
-names that start with an underscore followed by
-one or more uppercase letters (such as @Lid{_VERSION}).
+Lua est sensible à la casse :
+@id{and} est un mot (clé?) réservé, mais @id{And} et @id{AND}
+sont deux noms différents et valides.
+En tant que convention,
+les programmes devraient éviter de créer
+des noms qui commencent par un tiret bas suivi par
+une ou plusieurs lettres majuscules (comme @Lid{_VERSION}).
 
-The following strings denote other @x{tokens}:
+Voici quelques autres exemples de @x{tokens} :
 @verbatim{
 +     -     *     /     %     ^     #
 &     ~     |     <<    >>    //
@@ -804,76 +804,74 @@ The following strings denote other @x{tokens}:
 ;     :     ,     .     ..    ...
 }
 
-A @def{short literal string}
-can be delimited by matching single or double quotes,
-and can contain the following C-like escape sequences:
-@Char{\a} (bell),
-@Char{\b} (backspace),
-@Char{\f} (form feed),
-@Char{\n} (newline),
-@Char{\r} (carriage return),
-@Char{\t} (horizontal tab),
-@Char{\v} (vertical tab),
-@Char{\\} (backslash),
-@Char{\"} (quotation mark [double quote]),
-and @Char{\'} (apostrophe [single quote]).
-A backslash followed by a line break
-results in a newline in the string.
-The escape sequence @Char{\z} skips the following span
-of white-space characters,
-including line breaks;
-it is particularly useful to break and indent a long literal string
-into multiple lines without adding the newlines and spaces
-into the string contents.
-A short literal string cannot contain unescaped line breaks
-nor escapes not forming a valid escape sequence.
+Une @def{chaine de caractères littérale courte}
+peut être délimitée par des guillemets ou apostrophes (la même chose des deux cotés),
+et peut contenir les séquences d'échappement de C suivantes :
+@Char{\a} (caractère d'appel [bell]),
+@Char{\b} (retour arrière [backspace]),
+@Char{\f} (saut de page [form feed]),
+@Char{\n} (saut de ligne [line feed]),
+@Char{\r} (retour chariot [carriage return]),
+@Char{\t} (tabulation horizontale [horizontal tab]),
+@Char{\v} (tabulation verticale [vertical tab]),
+@Char{\\} (anti-slash [backslash]),
+@Char{\"} (guillemets [quotation mark, double quote]),
+et @Char{\'} (apostrophe [single quote]).
+Un anti-slash suivi par un retour à la ligne
+crée un saut de ligne dans la chaîne de caractère.
+La séquence d'échappement @Char{\z} saute la prochaine suite
+d'espaces, y compris les retours à la ligne;
+c'est particulièrement utile pour séparer ou indenter une longue chaîne de caractères littérale
+en plusieurs lignes sans ajouter les sauts de lignes et espaces
+dans le contenu de la chaîne.
+Une chaîne de caractères littérale courte ne peut pas contenir de retours à la ligne non échappés
+ni des échappements qui ne forment pas une séquence d'échappement correcte.
 
-We can specify any byte in a short literal string by its numeric value
-(including @x{embedded zeros}).
-This can be done
-with the escape sequence @T{\x@rep{XX}},
-where @rep{XX} is a sequence of exactly two hexadecimal digits,
-or with the escape sequence @T{\@rep{ddd}},
-where @rep{ddd} is a sequence of up to three decimal digits.
-(Note that if a decimal escape sequence is to be followed by a digit,
-it must be expressed using exactly three digits.)
+On peut spécifier n'importe quel octet dans une chaîne de caractères littérale courte avec sa valeur numérique
+(y compris les @x{caractères nuls}).
+On peut le faire
+avec la séquence d'échappement @T{\x@rep{XX}},
+où @rep{XX} est une séquence d’exactement deux chiffres en hexadécimal
+ou avec la séquence d'échappement @T{\ddd}},
+où @rep{ddd} est une suite de jusqu'à trois chiffres décimaux.
+(Notez que si une séquence d'échappement décimale doit être suivie par un chiffre,
+elle doit être construite avec exactement trois chiffres.)
 
-The @x{UTF-8} encoding of a @x{Unicode} character
-can be inserted in a literal string with
-the escape sequence @T{\u{@rep{XXX}}}
-(note the mandatory enclosing brackets),
-where @rep{XXX} is a sequence of one or more hexadecimal digits
-representing the character code point.
+L'encodage @x{UTF-8} d'un caractère @x{Unicode}
+peut être inséré dans une chaîne de caractères littérale avec
+la séquence d'échappement @T{\u{@rep{XXX}}}
+(Notez les accolades obligatoires),
+où @rep{XXX} est une suite de un ou plusieurs chiffres hexadécimaux
+représentant le code point du caractère.
 
-Literal strings can also be defined using a long format
-enclosed by @def{long brackets}.
-We define an @def{opening long bracket of level @rep{n}} as an opening
-square bracket followed by @rep{n} equal signs followed by another
-opening square bracket.
-So, an opening long bracket of @N{level 0} is written as @T{[[}, @C{]]}
-an opening long bracket of @N{level 1} is written as @T{[=[}, @C{]]}
-and so on.
-A @emph{closing long bracket} is defined similarly;
-for instance,
-a closing long bracket of @N{level 4} is written as @C{[[} @T{]====]}.
-A @def{long literal} starts with an opening long bracket of any level and
-ends at the first closing long bracket of the same level.
-It can contain any text except a closing bracket of the same level.
-Literals in this bracketed form can run for several lines,
-do not interpret any escape sequences,
-and ignore long brackets of any other level.
-Any kind of end-of-line sequence
-(carriage return, newline, carriage return followed by newline,
-or newline followed by carriage return)
-is converted to a simple newline.
+Les chaînes de caractères littérales peuvent aussi être définies avec un format long
+entourées par des @x{long brackets}.
+On définit un @def{long bracket ouvrant de niveau @rep{n}} comme un crochet
+ouvrant suivi par @rep{n} signes égal suivis par un autre crochet ouvrant.
+Donc, un long bracket ouvrant de @N{niveau 0} est écrit @T{[[}, @C{]]}
+un long bracket ouvrant de @N{niveau 1} est écrit @T{[=[}, @C{]]}
+etc…
+Un @emph{long bracket fermant} est défini de façon similaire ;
+par exemple,
+un long bracket fermant s'écrit @C{[[} @T{]====]}.
+Une @def{chaîne de caractères littérale longue} commence avec un long bracket ouvrant de n'importe quel niveau et
+se termine avec un long bracket? fermant du même niveau.
+Elle peut contenir n'importe quel texte à part un long bracket fermant du même niveau.
+Les chaînes littérales dans cette forme peuvent continuer sur plusieurs lignes,
+n'interprètent pas les séquences d'échappement,
+et ignorent les long brackets de n'importe quel autre niveau.
+n'importe quel type de séquence de fin de ligne
+(retour charriot, saut de ligne, retour charriot suivi par un saut de ligne,
+ou saut de ligne suivi par un retour charriot)
+est convertit en un seul saut de ligne.
 
-For convenience,
-when the opening long bracket is immediately followed by a newline,
-the newline is not included in the string.
-As an example, in a system using ASCII
-(in which @Char{a} is coded @N{as 97},
-newline is coded @N{as 10}, and @Char{1} is coded @N{as 49}),
-the five literal strings below denote the same string:
+Pour la simplicité,
+quand un long bracket ouvrant est immédiatement suivi par un saut de ligne,
+le saut de ligne n'est pas inclus dans la chaîne de caractères.
+Par exemple, dans un système qui utilise ASCII
+(dans lequel @Char{a} est @N{97},
+un saut de ligne est @N{10}, et @Char{1} est @N{49}),
+les cinq chaînes de caractères littérales suivantes sont équivalentes :
 @verbatim{
 a = 'alo\n123"'
 a = "alo\n123\""
@@ -885,47 +883,46 @@ alo
 123"]==]
 }
 
-Any byte in a literal string not
-explicitly affected by the previous rules represents itself.
-However, Lua opens files for parsing in text mode,
-and the system file functions may have problems with
-some control characters.
-So, it is safer to represent
-non-text data as a quoted literal with
-explicit escape sequences for the non-text characters.
+N'importe quel octet dans une chaîne de caractère littérale qui n'est pas
+spécifiquement affectée par les règles précédentes est représenté par lui même.
+Cependant, Lua ouvre les fichiers à analyser en mode texte,
+et les fonctions de fichiers du système peuvent avoir des problèmes avec
+certains caractères de contrôle.
+Donc, c'est plus sûr de représenter des données n'étant pas du texte comme une chaîne de caractères littérale
+en utilisant explicitent des séquences d'échappement pour les caractères n'étant pas du texte.
 
-A @def{numeric constant} (or @def{numeral})
-can be written with an optional fractional part
-and an optional decimal exponent,
-marked by a letter @Char{e} or @Char{E}.
-Lua also accepts @x{hexadecimal constants},
-which start with @T{0x} or @T{0X}.
-Hexadecimal constants also accept an optional fractional part
-plus an optional binary exponent,
-marked by a letter @Char{p} or @Char{P}.
-A numeric constant with a radix point or an exponent
-denotes a float;
-otherwise,
-if its value fits in an integer,
-it denotes an integer.
-Examples of valid integer constants are
+Une @def{constante numérique} (ou @def{nombre})
+peut être écrite avec une partie fractionnelle
+et une partie décimale optionnelle,
+marquée par une lettre @Char{e} ou @Char{E}.
+Lua accepte aussi les @x{constantes hexadécimales},
+qui commencent par @T{0x} ou @T{0X}.
+Les constantes hexadécimales acceptent aussi une partie fractionnelle optionnelle
+plus une partie optionnelle d'exposant,
+marquée par une lettre @Char{p} ou @Char{P}.
+Une constante numérique avec une racine ou un exposant
+deviendra un nombre flottant ;
+sinon,
+si sa valeur rentre dans un entier,
+elle deviendra un entier.
+Voici des exemples de constantes de nombre entier valides
 @verbatim{
 3   345   0xff   0xBEBADA
 }
-Examples of valid float constants are
+Voici des exemples de constantes à virgule flottante valides
 @verbatim{
 3.0     3.1416     314.16e-2     0.31416E1     34e1
 0x0.1E  0xA23p-4   0X1.921FB54442D18P+1
 }
 
-A @def{comment} starts with a double hyphen (@T{--})
-anywhere outside a string.
-If the text immediately after @T{--} is not an opening long bracket,
-the comment is a @def{short comment},
-which runs until the end of the line.
-Otherwise, it is a @def{long comment},
-which runs until the corresponding closing long bracket.
-Long comments are frequently used to disable code temporarily.
+Un @def{commentaire} commence avec deux tirets (@T{--})
+n'importe où à l'extérieur d'une chaîne de caractères.
+Si le texte immédiatement après @T{--} n'est pas un long bracket ouvrant,
+alors le commentaire est un @def{commentaire court},
+qui se termine à la fin de la ligne.
+Sinon, c'est un @def{commentaire long},
+qui se termine au long bracket fermant correspondant.
+Les commentaires longs sont souvent utilisés pour désactiver du code temporairement.
 
 }
 
