@@ -636,42 +636,43 @@ effacé jusqu'au prochain cycle.
 
 }
 
-@sect2{coroutine| @title{Coroutines}
+@sect2{coroutine|@title{Les coroutines}
 
-Lua supports coroutines,
-also called @emphx{collaborative multithreading}.
-A coroutine in Lua represents an independent thread of execution.
-Unlike threads in multithread systems, however,
-a coroutine only suspends its execution by explicitly calling
-a yield function.
+Lua supporte les coroutines, également appelé
+@emphx{multithreading collaboratif}.
+Une coroutine en Lua représente un fil d'exécution indépendant.
+Contrairement aux threads dans les systèmes multithread,
+une coroutine ne suspend que son exécution en appelant
+explicitement la fonction yield.
 
-You create a coroutine by calling @Lid{coroutine.create}.
-Its sole argument is a function
-that is the main function of the coroutine.
-The @id{create} function only creates a new coroutine and
-returns a handle to it (an object of type @emph{thread});
-it does not start the coroutine.
+Vous créez une coroutine en appelant @Lid{coroutine.create}.
+Son seul argument est une fonction qui est la fonction principale de la coroutine.
+La fonction @id{create} crée uniquement une nouvelle coroutine et
+lui renvoie une poignée (objet du type @emph{thread});
+Il ne démarre pas la coroutine.
 
-You execute a coroutine by calling @Lid{coroutine.resume}.
-When you first call @Lid{coroutine.resume},
-passing as its first argument
-a thread returned by @Lid{coroutine.create},
-the coroutine starts its execution by
-calling its main function.
-Extra arguments passed to @Lid{coroutine.resume} are passed
-as arguments to that function.
-After the coroutine starts running,
-it runs until it terminates or @emph{yields}.
+Vous exécutez une coroutine en appelant @Lid{coroutine.resume}.
+Lorsque vous appelez tout d'abord @Lid{coroutine.resume},
+en passant comme premier argument un thread renvoyé par
+@Lid{coroutine.create},
+la coroutine commence son exécution en appelant sa fonction principale.
+Les arguments supplémentaires transmis à @Lid{coroutine.resume}
+sont passés comme arguments de cotte fonction.
+Un fois que la coroutine commence son exécution en appelant
+sa fonction principale.
+Les arguments supplémentaires transmis à @Lid{coroutine.resume}
+sont passés comme arguments à cette fonction.
+Une fois que la coroutine commence son exécution,
+elle s'exécute jusqu'à se terminer ou rencontrer @emph{yields}.
 
-A coroutine can terminate its execution in two ways:
-normally, when its main function returns
-(explicitly or implicitly, after the last instruction);
-and abnormally, if there is an unprotected error.
-In case of normal termination,
-@Lid{coroutine.resume} returns @true,
-plus any values returned by the coroutine main function.
-In case of errors, @Lid{coroutine.resume} returns @false
-plus an error object.
+Une coroutine peut terminer son exécution de deux façons:
+normalement, lorsque sa fonction principale se termine
+(explicitement ou implicitement après la dernière instruction);
+et anormalement, s'il existe une erreur non protégée.
+En cas de fin normale, @Lid{coroutine.resume} renvoie @true,
+plus toutes les valeurs renvoyées par la fonction principale de la coroutine.
+En cas d'erreurs, @Lid{coroutine.resume} renvoie @false
+pour un objet d'erreur.
 
 A coroutine yields by calling @Lid{coroutine.yield}.
 When a coroutine yields,
