@@ -568,63 +568,69 @@ Les objets marqués à nouveau lors de cette phase sont ignorés.
 
 @sect3{weak-table| @title{Weak Tables}
 
-A @def{weak table} is a table whose elements are
-@def{weak references}.
-A weak reference is ignored by the garbage collector.
-In other words,
-if the only references to an object are weak references,
-then the garbage collector will collect that object.
+Une @def{weak table} est une table
+dont les éléments sont des @def{weak references}.
+Une référence faible est ignorée par le garbage collector.
+En d'autres termes, si les seules références à un objet
+sont des références faibles, alors le garbage collector
+collectera cet objet
 
-A weak table can have weak keys, weak values, or both.
-A table with weak values allows the collection of its values,
-but prevents the collection of its keys.
-A table with both weak keys and weak values allows the collection of
-both keys and values.
-In any case, if either the key or the value is collected,
-the whole pair is removed from the table.
-The weakness of a table is controlled by the
-@idx{__mode} field of its metatable.
-If the @idx{__mode} field is a string containing the @N{character @Char{k}},
-the keys in the table are weak.
-If @idx{__mode} contains @Char{v},
-the values in the table are weak.
+Une weak table peut avoir des clés faibles, des valeurs faibles
+ou les deux.
+Une weak table permet de collecter ses valeurs mais empêche
+la collecte de ses clés.
 
-A table with weak keys and strong values
-is also called an @def{ephemeron table}.
-In an ephemeron table,
-a value is considered reachable only if its key is reachable.
-In particular,
-if the only reference to a key comes through its value,
-the pair is removed.
+Une table avec, à la fois des clés faibles et des valeurs faibles
+permet la collecte de clés valeurs.
 
-Any change in the weakness of a table may take effect only
-at the next collect cycle.
-In particular, if you change the weakness to a stronger mode,
-Lua may still collect some items from that table
-before the change takes effect.
+Dans tous les cas, si la clé ou la valeur est collectée,
+toute la paire est retirée de la table.
+La faiblesse d'une table est contrôlée par les @idx{__mode}
+domaines de sa métatable.
+Si le champ @idx{__mode} est une chaîne contenant le
+@N{caractère @Char{k}}, les clés de la table sont faibles.
+Si @idx{__mode} contient @Char{v}, les valeurs dans
+le tableau sont faibles.
 
-Only objects that have an explicit construction
-are removed from weak tables.
-Values, such as numbers and @x{light @N{C functions}},
-are not subject to garbage collection,
-and therefore are not removed from weak tables
-(unless their associated values are collected).
-Although strings are subject to garbage collection,
-they do not have an explicit construction,
-and therefore are not removed from weak tables.
+Une table avec des clés faibles et des valeurs fortes est également
+appelé @def{ephemoron table}.
+Dans une table ephemeron, une valeur n'est considérée comme
+accessible que si sa clé est accessible.
+En particulier,  si la seule référence à une clé vient de sa valeur,
+la paire est supprimée.
 
-Resurrected objects
-(that is, objects being finalized
-and objects accessible only through objects being finalized)
-have a special behavior in weak tables.
-They are removed from weak values before running their finalizers,
-but are removed from weak keys only in the next collection
-after running their finalizers, when such objects are actually freed.
-This behavior allows the finalizer to access properties
-associated with the object through weak tables.
+Toute modification de la faiblesse d'une table peut prendre effet
+uniquement au prochain cycle de collecte.
+En particulier, si vous modifiez la faiblesse en mode plus fort,
+Lua peut encore recueillir des objets de cette table
+avant l'entrée en vigueur de la modification.
 
-If a weak table is among the resurrected objects in a collection cycle,
-it may not be properly cleared until the next cycle.
+Seuls les objets ayant une construction explicite sont retirées
+des weak tables.
+Les valeurs, telles que les nombres et @x{light@N{fonctions C}},
+ne sont pas assujettis à la collecte du garbage collector
+et ne sont donc pas supprimées des weak tables
+(à moins que leurs valeurs associées ne soient collectées).
+Bien que les chaînes soient assujetties à la collecte,
+elles n'ont pas de construction explicite et ne sont
+donc pas supprimées des weak tables.
+
+Les objets ressuscités (c'est à dire que les objets
+sont finalisés et accessibles uniquement à travers
+des objets en cours de finalisation)
+ont un comportement spécial dans les weak tables.
+Ils sont retirées des valeurs faibles avant
+d'exécuter leurs finaliseurs mais sont retirées
+des clés faibles uniquement dans la prochaine collecte
+après avoir exécuté leurs finalisations lorsque de tels
+objets sont effectivement libérés.
+Ce comportement permet et finaliseurs d'accéder
+aux propriétés associées à l'objet par des weak tables.
+
+Si une weak tables est parmi les objets ressuscités
+dans un cycle de collecte,
+il se peut qu'il ne soit pas correctement
+effacé jusqu'au prochain cycle.
 
 }
 
