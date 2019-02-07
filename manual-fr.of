@@ -93,9 +93,15 @@ incluant le @x{caractère nul} (@Char{\0}).
 Lua est aussi indépendant de l'encodage ;
 aucune supposition n'est faite sur le contenu d'un string.
 
-Le type @emph{number} utilise deux représentations internes, ou deux @x{sous-types}, l'une appelée @def{integer}, et une autre appelée @def{float}.
-Lua a des règles explicites quant à la représentation à utiliser, mais peut également les convertir automatiquement quand cela est nécessaire @see{coercion}.
-Par conséquent, le programmeur peut choisir d'ignorer la différence entre les integers et les floats la plupart du temps, ou bien contrôler complètement quel type utiliser.
+Le type @emph{number} utilise deux représentations internes,
+ou deux @x{sous-types},
+l'une appelée @def{integer}, et une autre appelée @def{float}.
+Lua a des règles explicites quant à la représentation à utiliser,
+mais peut également les convertir automatiquement quand cela est nécessaire @see{coercion}.
+Par conséquent,
+le programmeur peut choisir d'ignorer la différence
+entre les integers et les floats la plupart du temps,
+ou bien contrôler complètement quel type utiliser.
 Le Lua standard utilise des integers sur 64 bits, et des floats à double précision (64 bits), mais vous pouvez aussi compiler Lua pour le faire utiliser des integers sur 32 bits et/ou des floats à simple précision (32 bits).
 Le fait d'utiliser 32 bits pour et les integers, et les floats est particulièrement avantageux pour les petites machines, et les systèmes embarqués (voir la macro @id{LUA_32BITS} dans le fichier @id{luaconf.h}).
 
