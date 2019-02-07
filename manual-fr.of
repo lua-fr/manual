@@ -102,8 +102,13 @@ Par conséquent,
 le programmeur peut choisir d'ignorer la différence
 entre les integers et les floats la plupart du temps,
 ou bien contrôler complètement quel type utiliser.
-Le Lua standard utilise des integers sur 64 bits, et des floats à double précision (64 bits), mais vous pouvez aussi compiler Lua pour le faire utiliser des integers sur 32 bits et/ou des floats à simple précision (32 bits).
-Le fait d'utiliser 32 bits pour et les integers, et les floats est particulièrement avantageux pour les petites machines, et les systèmes embarqués (voir la macro @id{LUA_32BITS} dans le fichier @id{luaconf.h}).
+Le Lua standard utilise des integers sur 64 bits et des floats à double précision (64 bits),
+mais vous pouvez aussi compiler Lua pour le
+faire utiliser des integers sur 32 bits et/ou des floats à simple précision (32 bits).
+Le fait d'utiliser 32 bits pour et les integers, et les floats
+est particulièrement avantageux
+pour les petites machines, et les systèmes embarqués
+(voir la macro @id{LUA_32BITS} dans le fichier @id{luaconf.h}).
 
 Lua peut appeler (et manipuler) des fonctions écrites en Lua, et des fonctions écrites en C @see{functioncall}.
 Les deux sont représentées par le type @emph{function}.
