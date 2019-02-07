@@ -64,12 +64,14 @@ Cette section décrit les concepts de base du langage.
 @sect2{TypesSec| @title{Valeurs et types}
 
 Lua est un @emph{langage typé dynamiquement}.
-Cela signifie que les variables n'ont pas de type, seules les valeurs en ont un.
+Cela signifie que
+les variables n'ont pas de type, seules les valeurs en ont un.
 Il n'y a pas de définition de type dans le langage.
 Toutes les valeurs portent leur propre type.
 
 Toutes les valeurs dans Lua sont @emph{des valeurs de première classe}.
-Cela signifie que toutes les valeurs sont stockées dans des variables, passées comme arguments à des fonctions, et renvoyées comme résultat.
+Cela signifie que toutes les valeurs sont stockées dans des variables,
+passées comme arguments à des fonctions, et renvoyées comme résultat.
 
 Il y a huit @x{types de base} en Lua :
 @def{nil}, @def{boolean}, @def{number},
