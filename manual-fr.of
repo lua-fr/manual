@@ -84,7 +84,7 @@ Le type @emph{boolean} contient deux valeurs, @false et @true.
 @nil et @false sont des conditions fausses ;
 toutes les autres valeurs sont des conditions vraies.
 Le type @emph{number} représente à la fois
-les nombres entiers, et réels.
+les nombres entiers et réels.
 Le type @emph{string} représente des séquences d'octets immuables.
 @index{eight-bin clean}
 Lua est 8-bit clean :
