@@ -88,8 +88,10 @@ les nombres entiers et réels.
 Le type @emph{string} représente des séquences d'octets immuables.
 @index{eight-bin clean}
 Lua est 8-bit clean :
-Les strings peuvent contenir n'importes quelles valeurs de 8 bits, incluant le @x{caractère nul} (@Char{\0}).
-Lua est aussi indépendant de l'encodage ; aucune supposition n'est faite sur le contenu d'un string.
+Les strings peuvent contenir n'importes quelles valeurs de 8 bits,
+incluant le @x{caractère nul} (@Char{\0}).
+Lua est aussi indépendant de l'encodage ;
+aucune supposition n'est faite sur le contenu d'un string.
 
 Le type @emph{number} utilise deux représentations internes, ou deux @x{sous-types}, l'une appelée @def{integer}, et une autre appelée @def{float}.
 Lua a des règles explicites quant à la représentation à utiliser, mais peut également les convertir automatiquement quand cela est nécessaire @see{coercion}.
