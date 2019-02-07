@@ -40,8 +40,11 @@ Avec l'utilisation de @N{fonctions C}, Lua peut être utilisé dans
 de nombreux domaines de programmation,
 et ainsi créer des langages de programmation partageant une même base syntaxique.
 
-Lua est un logiciel libre, et est fourni sans aucune garantie, comme indiqué dans sa licence.
-L'implémentation décrite dans ce manuel est disponible sur le site officiel de Lua, @id{www.lua.org}.
+Lua est un logiciel libre,
+et est fourni sans aucune garantie,
+comme indiqué dans sa licence.
+L'implémentation décrite dans ce manuel est disponible
+sur le site officiel de Lua, @id{www.lua.org}.
 
 Comme n'importe quel autre manuel de référence, ce document n'a pas pour but d'enseigner, mais de renseigner.
 Pour discuter des décisions à propos du design de Lua, voir les documents techniques disponibles sur le site de Lua.
