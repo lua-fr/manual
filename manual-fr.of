@@ -5,7 +5,9 @@
 @sect1{@title{Introduction}
 
 Lua est un langage de script puissant, efficace, léger, embarquable.
-Il supporte la programmation procédurale, la programmation orientée objet, la programmation fonctionnelle, la programmation data-driven et la description de données.
+Il supporte la programmation procédurale,
+la programmation orientée objet, la programmation fonctionnelle,
+la programmation data-driven et la description de données.
 
 Lua combine une syntaxe procédurale simple avec une puissante construction de description des données basée sur des tableaux associatifs et une sémantique extensible.
 Lua est typé dynamiquement, basé sur l'interprétation d'un bytecode et une machine virtuelle. Il possède une gestion de la mémoire avec un garbage collector incrémental, le rendant idéal comme outil de configuration, pour l'écriture de script ainsi que pour le prototypage rapide.
