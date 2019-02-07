@@ -29,9 +29,16 @@ Lua est à la fois pensé pour être un langage de script puissant et léger
 pour les besoins d'extension de tout programme,
 et comme un langage autonome puissant, léger, et efficace.
 
-En tant que langage d'extension, Lua n'a pas de fonction principale @Q{main} : il fonctionne comme un langage embarqué sur un hôte, appelé @emph{programme embarqué}, ou simplement @emphx{hôte}. (Souvent, cet hôte est un programme @id{lua} autonome.)
-Le programme hôte peut appeler des fonctions pour exécuter des blocs (@emph{chunk}) de code Lua, peut écrire et lire des variables Lua, peut enregistrer des @N{fonctions C} pour être appelées avec du code Lua.
-Avec l'utilisation de @N{fonctions C}, Lua peut être utilisé dans de nombreux domaines de programmation, et ainsi créer des langages de programmation partageant une même base syntaxique.
+En tant que langage d'extension, Lua n'a pas de fonction principale @Q{main} :
+il fonctionne comme un langage embarqué sur un hôte,
+appelé @emph{programme embarqué}, ou simplement @emphx{hôte}.
+(Souvent, cet hôte est un programme @id{lua} autonome.)
+Le programme hôte peut appeler des fonctions pour exécuter des blocs (@emph{chunk}) de code Lua,
+peut écrire et lire des variables Lua,
+peut enregistrer des @N{fonctions C} pour être appelées avec du code Lua.
+Avec l'utilisation de @N{fonctions C}, Lua peut être utilisé dans
+de nombreux domaines de programmation,
+et ainsi créer des langages de programmation partageant une même base syntaxique.
 
 Lua est un logiciel libre, et est fourni sans aucune garantie, comme indiqué dans sa licence.
 L'implémentation décrite dans ce manuel est disponible sur le site officiel de Lua, @id{www.lua.org}.
